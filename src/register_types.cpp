@@ -1,5 +1,6 @@
 #include "register_types.h"
 #include "CharData.h"
+#include "Battler.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -14,6 +15,7 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 
 	// register custom modules
 	ClassDB::register_class<CharData>();
+	ClassDB::register_class<Battler>();
 }
 
 void uninitialize_example_module(ModuleInitializationLevel p_level) {
