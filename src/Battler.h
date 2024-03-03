@@ -30,6 +30,9 @@ public:
   TypedArray<int> getTurnOrder() const;
   void setTurnOrder(const TypedArray<int> new_turn_order);
 
+  // member functions for back end
+  void findTurnOrder();
+
   // print method for debug purposes
   void printBattle();
 };

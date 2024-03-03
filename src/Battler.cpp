@@ -37,6 +37,26 @@ void Battler::setTurnOrder(const TypedArray<int> new_turn_order) {
   turn_order = new_turn_order;
 }
 
+// member functions for back end
+void Battler::findTurnOrder() {
+  turn_order.clear();
+  Ref<CharData> ref_zars;
+  int order;
+  for (int i = 0; i < zars.size(); ++i) {
+    ref_zars = zars[i];
+    if (!ref_zars.is_null()) {
+      turn_order.push_back((ref_zars->getSpeed() * zars.size()) + i);
+    }
+  }
+  turn_order.sort();
+  turn_order.reverse();
+  // turn_order.sort_custom(); // doesnt work with c++
+  for (int i = 0; i < turn_order.size(); ++i) {
+    order = turn_order[i];
+    turn_order[i] = order % zars.size();
+  }
+}
+
 // print method for debug purposes
 void Battler::printBattle() {
   Ref<CharData> ref_zars;
