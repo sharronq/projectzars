@@ -57,6 +57,25 @@ void Battler::findTurnOrder() {
   }
 }
 
+int Battler::getEnemyOf(const int attacker) const {
+  int start;
+  Ref<CharData> ref_zars;
+  TypedArray<int> enemies;
+  if (attacker < zars.size() / 2) {
+    start = zars.size() / 2;
+  }
+  else {
+    start = 0;
+  }
+  for (int i = start; i < start + zars.size() / 2; ++i) {
+    ref_zars = zars[i];
+    if (!ref_zars.is_null()) {
+      enemies.push_back(i);
+    }
+  }
+  return enemies.pick_random();
+}
+
 // print method for debug purposes
 void Battler::printBattle() {
   Ref<CharData> ref_zars;

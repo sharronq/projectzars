@@ -32,6 +32,7 @@ public:
 
   // member functions for back end
   void findTurnOrder();
+  int getEnemyOf(const int attacker) const;
 
   // print method for debug purposes
   void printBattle();
