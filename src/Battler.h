@@ -13,6 +13,8 @@ class Battler : public Node2D {
 private:
   TypedArray<CharData> zars;
   TypedArray<int> turn_order;
+  int team_a, team_b;
+  int current_turn;
 
 protected:
   static void _bind_methods();
@@ -33,6 +35,9 @@ public:
   // member functions for back end
   void findTurnOrder();
   int getEnemyOf(const int attacker) const;
+
+  // member functions that are exported
+  void startBattle();
 
   // print method for debug purposes
   void printBattle();

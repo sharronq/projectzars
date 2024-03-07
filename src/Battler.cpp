@@ -12,6 +12,7 @@ void Battler::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("setTurnOrder", "new_turn_order"), &Battler::setTurnOrder);
   ClassDB::add_property("Battler", PropertyInfo(Variant::ARRAY, "turn_order", PROPERTY_HINT_ARRAY_TYPE, "int", PROPERTY_USAGE_READ_ONLY), "setTurnOrder", "getTurnOrder");
 
+  ClassDB::bind_method(D_METHOD("startBattle"), &Battler::startBattle);
   ClassDB::bind_method(D_METHOD("printBattle"), &Battler::printBattle);
 }
 
@@ -74,6 +75,27 @@ int Battler::getEnemyOf(const int attacker) const {
     }
   }
   return enemies.pick_random();
+}
+
+// member functions that are exported
+void Battler::startBattle() {
+  team_a = team_b = 0;
+  Ref<CharData> ref_zars;
+  for (int i = 0; i < zars.size() / 2; ++i) {
+    ref_zars = zars[i];
+    if (!ref_zars.is_null()) {
+      team_a++;
+    }
+  }
+  for (int i = zars.size() / 2; i < zars.size(); ++i) {
+    ref_zars = zars[i];
+    if (!ref_zars.is_null()) {
+      team_b++;
+    }
+  }
+  findTurnOrder();
+  current_turn = 0;
+  UtilityFunctions::print("Team count: ", team_a, ", ", team_b);
 }
 
 // print method for debug purposes
