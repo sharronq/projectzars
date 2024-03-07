@@ -38,6 +38,7 @@ public:
 
   // member functions that are exported
   void startBattle();
+  void playNextTurn();
 
   // print method for debug purposes
   void printBattle();

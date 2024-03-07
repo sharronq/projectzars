@@ -98,6 +98,35 @@ void Battler::startBattle() {
   UtilityFunctions::print("Team count: ", team_a, ", ", team_b);
 }
 
+void Battler::playNextTurn() {
+  if (team_a == 0 || team_b == 0) {
+    return;
+  }
+  int attacker = turn_order[current_turn];
+  int victim = getEnemyOf(attacker);
+  UtilityFunctions::print("Turn ", current_turn, ": Attacker slot ", attacker, " attacked victim slot ", victim);
+  Ref<CharData> ref_attacker = zars[attacker];
+  Ref<CharData> ref_victim = zars[victim];
+  ref_victim->setHealth(ref_victim->getHealth() - ref_attacker->getAttack());
+  if (ref_victim->getHealth() <= 0) {
+    UtilityFunctions::print("Victim slot ", victim, " died!");
+    zars[victim].clear();
+    int victim_order = turn_order.find(victim);
+    turn_order.remove_at(victim_order);
+    if (victim_order < current_turn) {
+      current_turn--;
+    }
+    if (victim < zars.size() / 2) {
+      team_a--;
+    }
+    else {
+      team_b--;
+    }
+    UtilityFunctions::print("Team count: ", team_a, ", ", team_b);
+  }
+  current_turn = (current_turn + 1) % turn_order.size();
+}
+
 // print method for debug purposes
 void Battler::printBattle() {
   Ref<CharData> ref_zars;
