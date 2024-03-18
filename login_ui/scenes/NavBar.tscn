@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c70rk3scy5vvq"]
+
+[ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="1_crplm"]
+[ext_resource type="StyleBox" uid="uid://b23on3vnskn3s" path="res://resources/navbar_disabled.tres" id="2_a427j"]
+[ext_resource type="Script" path="res://Scripts/NewScene.gd" id="3_e0qlq"]
+
+[node name="NavBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 559.0
+offset_right = 376.0
+offset_bottom = 614.0
+theme_override_fonts/font = ExtResource("1_crplm")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/disabled = ExtResource("2_a427j")
+text = "Home"
+script = ExtResource("3_e0qlq")

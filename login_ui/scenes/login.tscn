@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://c0p2v5jkeoqdi"]
 
-[ext_resource type="FontFile" uid="uid://bq3x0g6opxv7u" path="res://assets/MorrisRomanAlternate-Black.ttf" id="1_sxxoo"]
-[ext_resource type="Script" path="res://Scripts/Back.gd" id="2_tbett"]
-[ext_resource type="Theme" uid="uid://df0hnq8k7t4jd" path="res://resources/defaulttext.tres" id="3_el0bc"]
+[ext_resource type="FontFile" uid="uid://bq3x0g6opxv7u" path="res://assets/fonts/MorrisRomanAlternate-Black.ttf" id="1_obcti"]
+[ext_resource type="Script" path="res://Scripts/NewScene.gd" id="2_y8sg4"]
+[ext_resource type="Theme" uid="uid://df0hnq8k7t4jd" path="res://resources/defaulttext.tres" id="4_porv7"]
 
 [sub_resource type="Theme" id="Theme_5gk6o"]
-default_font = ExtResource("1_sxxoo")
+default_font = ExtResource("1_obcti")
 default_font_size = 40
 
 [node name="Login" type="Node2D"]
@@ -17,15 +17,7 @@ offset_right = 544.0
 offset_bottom = 491.0
 theme = SubResource("Theme_5gk6o")
 text = "Login"
-
-[node name="Back" type="Button" parent="."]
-offset_left = 903.0
-offset_top = 566.0
-offset_right = 1134.0
-offset_bottom = 627.0
-theme = SubResource("Theme_5gk6o")
-text = "Back"
-script = ExtResource("2_tbett")
+script = ExtResource("2_y8sg4")
 
 [node name="Register" type="Button" parent="."]
 offset_left = 634.0
@@ -41,7 +33,7 @@ offset_left = 314.0
 offset_top = 246.0
 offset_right = 864.0
 offset_bottom = 307.0
-theme = ExtResource("3_el0bc")
+theme = ExtResource("4_porv7")
 placeholder_text = " Username"
 
 [node name="Password" type="TextEdit" parent="."]
@@ -49,5 +41,5 @@ offset_left = 314.0
 offset_top = 323.0
 offset_right = 864.0
 offset_bottom = 384.0
-theme = ExtResource("3_el0bc")
+theme = ExtResource("4_porv7")
 placeholder_text = " Password"
