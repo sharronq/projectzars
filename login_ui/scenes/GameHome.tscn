@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dndg143ml60if"]
 
-[ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://assets/gallery.png" id="1_cmgud"]
+[ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://assets/bgs/gallery.png" id="1_cmgud"]
 [ext_resource type="PackedScene" uid="uid://c70rk3scy5vvq" path="res://scenes/NavBar.tscn" id="2_qcfgx"]
 
 [node name="Gamehome" type="Node2D"]

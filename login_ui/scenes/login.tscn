@@ -1,14 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0p2v5jkeoqdi"]
+[gd_scene load_steps=8 format=3 uid="uid://c0p2v5jkeoqdi"]
 
+[ext_resource type="Texture2D" uid="uid://coc2gf6c0eyre" path="res://assets/bgs/bg_f_1.png" id="1_fuims"]
 [ext_resource type="FontFile" uid="uid://bq3x0g6opxv7u" path="res://assets/fonts/MorrisRomanAlternate-Black.ttf" id="1_obcti"]
 [ext_resource type="Script" path="res://Scripts/NewScene.gd" id="2_y8sg4"]
-[ext_resource type="Theme" uid="uid://df0hnq8k7t4jd" path="res://resources/defaulttext.tres" id="4_porv7"]
+[ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="5_2cjui"]
+[ext_resource type="Script" path="res://Scripts/Username.gd" id="5_ycscd"]
+[ext_resource type="Script" path="res://Scripts/user_not_found.gd" id="6_crvb2"]
 
 [sub_resource type="Theme" id="Theme_5gk6o"]
 default_font = ExtResource("1_obcti")
 default_font_size = 40
 
 [node name="Login" type="Node2D"]
+
+[node name="BgF1" type="Sprite2D" parent="."]
+position = Vector2(574.706, 324.5)
+scale = Vector2(0.791613, 0.790441)
+texture = ExtResource("1_fuims")
 
 [node name="Login" type="Button" parent="."]
 offset_left = 313.0
@@ -28,18 +36,42 @@ theme = SubResource("Theme_5gk6o")
 text = "Register
 "
 
-[node name="Username" type="TextEdit" parent="."]
+[node name="Username" type="LineEdit" parent="."]
 offset_left = 314.0
-offset_top = 246.0
-offset_right = 864.0
-offset_bottom = 307.0
-theme = ExtResource("4_porv7")
-placeholder_text = " Username"
+offset_top = 219.0
+offset_right = 861.0
+offset_bottom = 295.0
+theme_override_fonts/font = ExtResource("5_2cjui")
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Username"
+clear_button_enabled = true
+caret_blink = true
+script = ExtResource("5_ycscd")
 
-[node name="Password" type="TextEdit" parent="."]
+[node name="Password" type="LineEdit" parent="."]
 offset_left = 314.0
-offset_top = 323.0
-offset_right = 864.0
-offset_bottom = 384.0
-theme = ExtResource("4_porv7")
-placeholder_text = " Password"
+offset_top = 311.0
+offset_right = 861.0
+offset_bottom = 387.0
+theme_override_fonts/font = ExtResource("5_2cjui")
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Password"
+clear_button_enabled = true
+caret_blink = true
+secret = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 21.0
+offset_top = 134.0
+offset_right = 1163.0
+offset_bottom = 199.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_obcti")
+theme_override_font_sizes/font_size = 35
+horizontal_alignment = 1
+script = ExtResource("6_crvb2")
+
+[connection signal="pressed" from="Login" to="Username" method="_on_login_pressed"]
+[connection signal="pressed" from="Login" to="Label" method="_on_login_pressed"]
+[connection signal="user_not_found" from="Username" to="Label" method="_on_username_user_not_found"]
+[connection signal="wrong_password" from="Username" to="Label" method="_on_username_wrong_password"]
