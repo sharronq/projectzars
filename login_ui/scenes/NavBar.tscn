@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c70rk3scy5vvq"]
+[gd_scene load_steps=6 format=3 uid="uid://c70rk3scy5vvq"]
 
 [ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="1_crplm"]
 [ext_resource type="StyleBox" uid="uid://b23on3vnskn3s" path="res://resources/navbar_disabled.tres" id="2_a427j"]
+[ext_resource type="StyleBox" uid="uid://7pyavrmageb5" path="res://resources/navbar_enabled.tres" id="2_wd30j"]
 [ext_resource type="Script" path="res://Scripts/NewScene.gd" id="3_e0qlq"]
+[ext_resource type="StyleBox" uid="uid://dix82pa27dcyp" path="res://resources/navbar_hover.tres" id="3_m7js8"]
 
 [node name="NavBar" type="Control"]
 layout_mode = 3
@@ -12,14 +14,59 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="Home" type="Button" parent="."]
 layout_mode = 0
-offset_left = 74.0
-offset_top = 559.0
-offset_right = 376.0
-offset_bottom = 614.0
+offset_left = 21.0
+offset_top = 560.0
+offset_right = 353.0
+offset_bottom = 631.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_crplm")
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_wd30j")
+theme_override_styles/hover = ExtResource("3_m7js8")
 theme_override_styles/disabled = ExtResource("2_a427j")
 text = "Home"
+script = ExtResource("3_e0qlq")
+
+[node name="View characters" type="Button" parent="."]
+offset_left = 280.0
+offset_top = 560.0
+offset_right = 612.0
+offset_bottom = 631.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_crplm")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_wd30j")
+theme_override_styles/hover = ExtResource("3_m7js8")
+theme_override_styles/disabled = ExtResource("2_a427j")
+text = "View characters"
+script = ExtResource("3_e0qlq")
+
+[node name="Battle" type="Button" parent="."]
+offset_left = 537.0
+offset_top = 560.0
+offset_right = 869.0
+offset_bottom = 631.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_crplm")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_wd30j")
+theme_override_styles/hover = ExtResource("3_m7js8")
+theme_override_styles/disabled = ExtResource("2_a427j")
+text = "Battle"
+script = ExtResource("3_e0qlq")
+
+[node name="Settings" type="Button" parent="."]
+offset_left = 799.0
+offset_top = 560.0
+offset_right = 1131.0
+offset_bottom = 631.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_crplm")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_wd30j")
+theme_override_styles/hover = ExtResource("3_m7js8")
+theme_override_styles/disabled = ExtResource("2_a427j")
+text = "Settings"
 script = ExtResource("3_e0qlq")

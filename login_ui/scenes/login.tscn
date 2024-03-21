@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0p2v5jkeoqdi"]
+[gd_scene load_steps=7 format=3 uid="uid://c0p2v5jkeoqdi"]
 
 [ext_resource type="Texture2D" uid="uid://coc2gf6c0eyre" path="res://assets/bgs/bg_f_1.png" id="1_fuims"]
 [ext_resource type="FontFile" uid="uid://bq3x0g6opxv7u" path="res://assets/fonts/MorrisRomanAlternate-Black.ttf" id="1_obcti"]
-[ext_resource type="Script" path="res://Scripts/NewScene.gd" id="2_y8sg4"]
 [ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="5_2cjui"]
 [ext_resource type="Script" path="res://Scripts/Username.gd" id="5_ycscd"]
 [ext_resource type="Script" path="res://Scripts/user_not_found.gd" id="6_crvb2"]
@@ -25,7 +24,6 @@ offset_right = 544.0
 offset_bottom = 491.0
 theme = SubResource("Theme_5gk6o")
 text = "Login"
-script = ExtResource("2_y8sg4")
 
 [node name="Register" type="Button" parent="."]
 offset_left = 634.0
@@ -73,5 +71,8 @@ script = ExtResource("6_crvb2")
 
 [connection signal="pressed" from="Login" to="Username" method="_on_login_pressed"]
 [connection signal="pressed" from="Login" to="Label" method="_on_login_pressed"]
+[connection signal="pressed" from="Register" to="Username" method="_on_register_pressed"]
+[connection signal="no_password" from="Username" to="Label" method="_on_username_no_password"]
+[connection signal="no_username" from="Username" to="Label" method="_on_username_no_username"]
 [connection signal="user_not_found" from="Username" to="Label" method="_on_username_user_not_found"]
 [connection signal="wrong_password" from="Username" to="Label" method="_on_username_wrong_password"]
