@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://brgntyuid6nfh"]
+
+[ext_resource type="Script" path="res://battler.gd" id="1_gw7c4"]
+[ext_resource type="Texture2D" uid="uid://cu4i0vth53nxb" path="res://art/Backgrounds/bg_00.png" id="2_57lm6"]
+[ext_resource type="PackedScene" uid="uid://bp06xli8ks4jx" path="res://player_group.tscn" id="3_2s8vf"]
+[ext_resource type="PackedScene" uid="uid://nkbsb5c3x3tb" path="res://group.tscn" id="3_4aeco"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6mg0"]
+bg_color = Color(0, 0, 0, 0.603922)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+
+[node name="Battler" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gw7c4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 648.0
+texture = ExtResource("2_57lm6")
+expand_mode = 1
+
+[node name="PlayerGroup" parent="." instance=ExtResource("3_2s8vf")]
+position = Vector2(-13, 20)
+
+[node name="EnemyGroup" parent="." instance=ExtResource("3_4aeco")]
+position = Vector2(769, 5)
+
+[node name="TextContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -510.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Textbox" type="Panel" parent="TextContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k6mg0")
+
+[node name="Label" type="Label" parent="TextContainer/Textbox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 18.0
+offset_right = -19.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Enemy encountered!"
+
+[node name="TurnOrder" type="Panel" parent="."]
+layout_mode = 2
+offset_left = 83.0
+offset_top = 480.0
+offset_right = 1080.0
+offset_bottom = 618.0
+
+[node name="Turns" type="HBoxContainer" parent="TurnOrder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TurnOrder/Turns"]
+layout_mode = 2
