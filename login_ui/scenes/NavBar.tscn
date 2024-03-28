@@ -30,6 +30,7 @@ text = "Home"
 script = ExtResource("3_e0qlq")
 
 [node name="View characters" type="Button" parent="."]
+layout_mode = 0
 offset_left = 280.0
 offset_top = 560.0
 offset_right = 612.0
@@ -44,6 +45,7 @@ text = "View characters"
 script = ExtResource("3_e0qlq")
 
 [node name="Battle" type="Button" parent="."]
+layout_mode = 0
 offset_left = 537.0
 offset_top = 560.0
 offset_right = 869.0
@@ -58,6 +60,7 @@ text = "Battle"
 script = ExtResource("3_e0qlq")
 
 [node name="Settings" type="Button" parent="."]
+layout_mode = 0
 offset_left = 799.0
 offset_top = 560.0
 offset_right = 1131.0

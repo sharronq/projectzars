@@ -8,6 +8,7 @@ var scene_dict = {
 	"Gamehome": "res://scenes/GameHome.tscn"
 }
 
+
 func initialize_button():
 	if get_scene_name() == "Gamehome" && self.text == "Home":
 		self.disabled = true
