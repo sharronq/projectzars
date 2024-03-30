@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qxobxawy8ntx"
-path="res://.godot/imported/Necromancer_Idle-2.png-ffaab234ad5b34939577f4a5af8977c8.ctex"
+path="res://.godot/imported/Necromancer_Idle-2.png-84e4ae4987f93340f488786c5b49d878.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Necromancer/Necromancer_Idle-2.png"
-dest_files=["res://.godot/imported/Necromancer_Idle-2.png-ffaab234ad5b34939577f4a5af8977c8.ctex"]
+source_file="res://battler/art/Necromancer/Necromancer_Idle-2.png"
+dest_files=["res://.godot/imported/Necromancer_Idle-2.png-84e4ae4987f93340f488786c5b49d878.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://u6wyht17u847"
-path="res://.godot/imported/Ogre_Idle-3.png-b1666953ef24630123c86185355cd031.ctex"
+path="res://.godot/imported/Ogre_Idle-3.png-7b3124a0a40206e977f8b98eaf84b312.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Ogre_Idle-3.png"
-dest_files=["res://.godot/imported/Ogre_Idle-3.png-b1666953ef24630123c86185355cd031.ctex"]
+source_file="res://battler/art/Ogre_Idle-3.png"
+dest_files=["res://.godot/imported/Ogre_Idle-3.png-7b3124a0a40206e977f8b98eaf84b312.ctex"]
 
 [params]
 

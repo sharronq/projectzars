@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dn2mlkjcw1nng"
-path="res://.godot/imported/Necromancer_Walk-1.png-66ffeddbf822983ed627ac5d32875eaf.ctex"
+path="res://.godot/imported/Necromancer_Walk-1.png-c7df11a0d0ffdd978f96b13a62eb31ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Necromancer/Necromancer_Walk-1.png"
-dest_files=["res://.godot/imported/Necromancer_Walk-1.png-66ffeddbf822983ed627ac5d32875eaf.ctex"]
+source_file="res://battler/art/Necromancer/Necromancer_Walk-1.png"
+dest_files=["res://.godot/imported/Necromancer_Walk-1.png-c7df11a0d0ffdd978f96b13a62eb31ef.ctex"]
 
 [params]
 
