@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://df0hnq8k7t4jd"]
 
-[ext_resource type="FontFile" uid="uid://bq3x0g6opxv7u" path="res://assets/fonts/MorrisRomanAlternate-Black.ttf" id="1_bkc2w"]
+[ext_resource type="FontFile" uid="uid://bq3x0g6opxv7u" path="res://Assets/fonts/MorrisRomanAlternate-Black.ttf" id="1_bkc2w"]
 
 [resource]
 default_font = ExtResource("1_bkc2w")

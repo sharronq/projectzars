@@ -1,5 +1,9 @@
+# Checks user password against dictionary of known users.
+# Used by: Login.tscn
+
 extends LineEdit
 
+# Signals sent to register_login_error_text.gd
 signal user_not_found
 signal wrong_password
 signal no_username
@@ -12,20 +16,21 @@ var password = ""
 func _ready():
 	grab_focus() # Starts cursor on login text box
 
-func _process(_delta):
-	pass
-
+# If user presses login button, grab the text from the Username and Password
+# nodes and checks if they are correct.
 func _on_login_pressed():
 	password = get_node("/root/Login/Password").text
 	if text in user_dict:
 		if password == user_dict[text]:
+			# If both user found and password correct, go to their saves
 			get_tree().change_scene_to_file("res://scenes/LoadSave.tscn")
 		else:
 			wrong_password.emit()
 	else:
 		user_not_found.emit()
-		print("user not found")
 
+# If user presses register, grab the text from the Username and Password
+# nodes and if neither are empty, add to the user dictionary.
 func _on_register_pressed():
 	password = get_node("/root/Login/Password").text
 	if text == "":
@@ -36,4 +41,3 @@ func _on_register_pressed():
 		return
 	user_dict[text] = password
 	get_tree().change_scene_to_file("res://scenes/LoadSave.tscn")
-	print("new account made")

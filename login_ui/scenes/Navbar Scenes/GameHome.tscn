@@ -1,128 +1,128 @@
 [gd_scene load_steps=39 format=3 uid="uid://dndg143ml60if"]
 
-[ext_resource type="Texture2D" uid="uid://c8jto258wdo1p" path="res://assets/bgs/bg_15.png" id="1_87kyk"]
-[ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://assets/bgs/gallery.png" id="1_cmgud"]
-[ext_resource type="PackedScene" uid="uid://c70rk3scy5vvq" path="res://scenes/NavBar.tscn" id="2_qcfgx"]
-[ext_resource type="Script" path="res://Scripts/test.gd" id="4_ple0e"]
-[ext_resource type="Texture2D" uid="uid://db8m0ro0ewism" path="res://assets/characters/Archer_Blue.png" id="4_vkfsv"]
-[ext_resource type="Texture2D" uid="uid://cx6xd8fk5k377" path="res://assets/characters/Warrior_Blue.png" id="6_en1v8"]
-[ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="7_epxvk"]
-[ext_resource type="Script" path="res://Scripts/backtologin.gd" id="8_2hn1p"]
+[ext_resource type="Script" path="res://Scripts/change_scene.gd" id="1_npt3m"]
+[ext_resource type="Texture2D" uid="uid://c8jto258wdo1p" path="res://Assets/bgs/bg_15.png" id="1_v4hhk"]
+[ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://Assets/bgs/gallery.png" id="2_s1icr"]
+[ext_resource type="Script" path="res://Scripts/randomize_anim.gd" id="3_7ce1a"]
+[ext_resource type="Texture2D" uid="uid://db8m0ro0ewism" path="res://Assets/characters/Archer_Blue.png" id="4_3ipco"]
+[ext_resource type="Texture2D" uid="uid://cx6xd8fk5k377" path="res://Assets/characters/Warrior_Blue.png" id="5_gks5f"]
+[ext_resource type="PackedScene" uid="uid://c70rk3scy5vvq" path="res://Scenes/NavBar.tscn" id="6_sr5f4"]
+[ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://Assets/fonts/CaslonAntique.ttf" id="7_cma15"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_okw1g"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cj7aq"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(192, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rapto"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(384, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4q1bu"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(576, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r43a7"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(768, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x613d"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(960, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f45xx"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(0, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqbxk"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(192, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1p25i"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(384, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nwsfo"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(576, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4no46"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(768, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_boc4i"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(960, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4gt2n"]
-atlas = ExtResource("6_en1v8")
+atlas = ExtResource("5_gks5f")
 region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_britu"]
-atlas = ExtResource("6_en1v8")
+atlas = ExtResource("5_gks5f")
 region = Rect2(192, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6pfvi"]
-atlas = ExtResource("6_en1v8")
+atlas = ExtResource("5_gks5f")
 region = Rect2(384, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xw1t1"]
-atlas = ExtResource("6_en1v8")
+atlas = ExtResource("5_gks5f")
 region = Rect2(576, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ycagn"]
-atlas = ExtResource("6_en1v8")
+atlas = ExtResource("5_gks5f")
 region = Rect2(768, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kne3j"]
-atlas = ExtResource("6_en1v8")
+atlas = ExtResource("5_gks5f")
 region = Rect2(960, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sj2x6"]
-atlas = ExtResource("6_en1v8")
+atlas = ExtResource("5_gks5f")
 region = Rect2(0, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gr2c2"]
-atlas = ExtResource("6_en1v8")
+atlas = ExtResource("5_gks5f")
 region = Rect2(576, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ho6g4"]
-atlas = ExtResource("6_en1v8")
+atlas = ExtResource("5_gks5f")
 region = Rect2(576, 768, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eg61m"]
-atlas = ExtResource("6_en1v8")
+atlas = ExtResource("5_gks5f")
 region = Rect2(576, 1152, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlms4"]
-atlas = ExtResource("6_en1v8")
+atlas = ExtResource("5_gks5f")
 region = Rect2(768, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j1p4e"]
-atlas = ExtResource("6_en1v8")
+atlas = ExtResource("5_gks5f")
 region = Rect2(960, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qf203"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4l7ca"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(0, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8c7w5"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(192, 768, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0x2i8"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(384, 768, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0xoym"]
-atlas = ExtResource("4_vkfsv")
+atlas = ExtResource("4_3ipco")
 region = Rect2(576, 768, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_51af3"]
@@ -237,40 +237,47 @@ animations = [{
 
 [node name="Gamehome" type="Node2D"]
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Change scene" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_npt3m")
+
+[node name="animation_timer" type="Timer" parent="."]
 autostart = true
 
-[node name="Bg15" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="."]
 position = Vector2(575, 323.5)
 scale = Vector2(0.728022, 0.682598)
-texture = ExtResource("1_87kyk")
+texture = ExtResource("1_v4hhk")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="border" type="TextureRect" parent="."]
 z_index = -1
 offset_right = 1152.0
 offset_bottom = 647.0
-texture = ExtResource("1_cmgud")
+texture = ExtResource("2_s1icr")
 expand_mode = 1
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("4_ple0e")
+[node name="sprite" type="CharacterBody2D" parent="."]
+script = ExtResource("3_7ce1a")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="sprite"]
 position = Vector2(267, 513)
 scale = Vector2(1.32552, 1.32552)
 sprite_frames = SubResource("SpriteFrames_51af3")
 animation = &"knight_idle"
 
-[node name="NavBar" parent="." instance=ExtResource("2_qcfgx")]
+[node name="navbar" parent="." instance=ExtResource("6_sr5f4")]
 
-[node name="Button" type="Button" parent="."]
+[node name="back_to_saves" type="Button" parent="."]
 offset_left = 45.0
 offset_top = 44.0
 offset_right = 240.0
 offset_bottom = 105.0
-theme_override_fonts/font = ExtResource("7_epxvk")
+theme_override_fonts/font = ExtResource("7_cma15")
 theme_override_font_sizes/font_size = 25
-text = "Back to login"
-script = ExtResource("8_2hn1p")
+text = "Back to saves"
 
-[connection signal="timeout" from="Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="animation_timer" to="sprite" method="_on_timer_timeout"]
+[connection signal="pressed" from="back_to_saves" to="Change scene" method="_on_back_to_login_pressed"]

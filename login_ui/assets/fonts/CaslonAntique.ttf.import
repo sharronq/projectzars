@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dpghealcypu5y"
-path="res://.godot/imported/CaslonAntique.ttf-8f8b3c888fabfd0cf0a8667a789a520c.fontdata"
+path="res://.godot/imported/CaslonAntique.ttf-682ffc0299771fcc560ba477e65280f9.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/CaslonAntique.ttf"
-dest_files=["res://.godot/imported/CaslonAntique.ttf-8f8b3c888fabfd0cf0a8667a789a520c.fontdata"]
+source_file="res://Assets/fonts/CaslonAntique.ttf"
+dest_files=["res://.godot/imported/CaslonAntique.ttf-682ffc0299771fcc560ba477e65280f9.fontdata"]
 
 [params]
 

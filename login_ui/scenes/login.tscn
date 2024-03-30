@@ -1,21 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0p2v5jkeoqdi"]
+[gd_scene load_steps=8 format=3 uid="uid://c0p2v5jkeoqdi"]
 
-[ext_resource type="Texture2D" uid="uid://coc2gf6c0eyre" path="res://assets/bgs/bg_f_1.png" id="1_fuims"]
-[ext_resource type="FontFile" uid="uid://bq3x0g6opxv7u" path="res://assets/fonts/MorrisRomanAlternate-Black.ttf" id="1_obcti"]
-[ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="5_2cjui"]
-[ext_resource type="Script" path="res://Scripts/Username.gd" id="5_ycscd"]
-[ext_resource type="Script" path="res://Scripts/user_not_found.gd" id="6_crvb2"]
+[ext_resource type="Script" path="res://Scripts/change_scene.gd" id="1_qiwwx"]
+[ext_resource type="Texture2D" uid="uid://coc2gf6c0eyre" path="res://Assets/bgs/bg_f_1.png" id="2_5em1q"]
+[ext_resource type="FontFile" uid="uid://bq3x0g6opxv7u" path="res://Assets/fonts/MorrisRomanAlternate-Black.ttf" id="3_pgff3"]
+[ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://Assets/fonts/CaslonAntique.ttf" id="4_tii44"]
+[ext_resource type="Script" path="res://Scripts/LoginScene/get_user_password.gd" id="5_8a7iu"]
+[ext_resource type="Script" path="res://Scripts/LoginScene/register_login_error_text.gd" id="6_wc1q5"]
 
 [sub_resource type="Theme" id="Theme_5gk6o"]
-default_font = ExtResource("1_obcti")
+default_font = ExtResource("3_pgff3")
 default_font_size = 40
 
 [node name="Login" type="Node2D"]
 
-[node name="BgF1" type="Sprite2D" parent="."]
+[node name="Change scene" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qiwwx")
+
+[node name="Background" type="Sprite2D" parent="."]
 position = Vector2(574.706, 324.5)
 scale = Vector2(0.791613, 0.790441)
-texture = ExtResource("1_fuims")
+texture = ExtResource("2_5em1q")
 
 [node name="Login" type="Button" parent="."]
 offset_left = 313.0
@@ -39,19 +47,19 @@ offset_left = 314.0
 offset_top = 219.0
 offset_right = 861.0
 offset_bottom = 295.0
-theme_override_fonts/font = ExtResource("5_2cjui")
+theme_override_fonts/font = ExtResource("4_tii44")
 theme_override_font_sizes/font_size = 40
 placeholder_text = "Username"
 clear_button_enabled = true
 caret_blink = true
-script = ExtResource("5_ycscd")
+script = ExtResource("5_8a7iu")
 
 [node name="Password" type="LineEdit" parent="."]
 offset_left = 314.0
 offset_top = 311.0
 offset_right = 861.0
 offset_bottom = 387.0
-theme_override_fonts/font = ExtResource("5_2cjui")
+theme_override_fonts/font = ExtResource("4_tii44")
 theme_override_font_sizes/font_size = 40
 placeholder_text = "Password"
 clear_button_enabled = true
@@ -64,10 +72,10 @@ offset_top = 134.0
 offset_right = 1163.0
 offset_bottom = 199.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_obcti")
+theme_override_fonts/font = ExtResource("3_pgff3")
 theme_override_font_sizes/font_size = 35
 horizontal_alignment = 1
-script = ExtResource("6_crvb2")
+script = ExtResource("6_wc1q5")
 
 [connection signal="pressed" from="Login" to="Username" method="_on_login_pressed"]
 [connection signal="pressed" from="Login" to="Label" method="_on_login_pressed"]
