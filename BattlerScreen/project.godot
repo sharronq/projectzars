@@ -10,16 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Projectzars"
-run/main_scene="res://Scenes/Login.tscn"
+config/name="Game 1"
+run/main_scene="res://battler.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
+[display]
 
-Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
-SaveLoadManager="*res://scenes/save_load_manager.tscn"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/godot-firebase/plugin.cfg")
+window/size/resizable=false
+window/stretch/mode="canvas_items"
