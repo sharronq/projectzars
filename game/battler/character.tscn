@@ -1,5 +1,8 @@
-[gd_scene format=3 uid="uid://d1yaeofo5gmdp"]
+[gd_scene load_steps=2 format=3 uid="uid://d1yaeofo5gmdp"]
+
+[ext_resource type="Script" path="res://battler/character.gd" id="1_w4lab"]
 
 [node name="Character" type="Node2D"]
+script = ExtResource("1_w4lab")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
