@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu4i0vth53nxb"
-path="res://.godot/imported/bg_00.png-f71c74ac2978d61e8737be96d2025daf.ctex"
+uid="uid://deo6nc3k7846y"
+path="res://.godot/imported/bg_battler.png-47f4bcab874c5b121393e7e4ce607611.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://battler/art/Backgrounds/bg_00.png"
-dest_files=["res://.godot/imported/bg_00.png-f71c74ac2978d61e8737be96d2025daf.ctex"]
+source_file="res://assets/bgs/bg_battler.png"
+dest_files=["res://.godot/imported/bg_battler.png-47f4bcab874c5b121393e7e4ce607611.ctex"]
 
 [params]
 
