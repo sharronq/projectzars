@@ -1,0 +1,107 @@
+[gd_resource type="CharData" load_steps=15 format=3 uid="uid://r6cj0h5wj5bp"]
+
+[ext_resource type="Texture2D" uid="uid://chbxc26krneeu" path="res://assets/characters/Pawn_Blue.png" id="1_tynu8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45s46"]
+atlas = ExtResource("1_tynu8")
+region = Rect2(0, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_845cy"]
+atlas = ExtResource("1_tynu8")
+region = Rect2(192, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oqqi"]
+atlas = ExtResource("1_tynu8")
+region = Rect2(384, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q7ea"]
+atlas = ExtResource("1_tynu8")
+region = Rect2(576, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4365w"]
+atlas = ExtResource("1_tynu8")
+region = Rect2(768, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j1vj"]
+atlas = ExtResource("1_tynu8")
+region = Rect2(960, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx6i7"]
+atlas = ExtResource("1_tynu8")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76ane"]
+atlas = ExtResource("1_tynu8")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xu7p5"]
+atlas = ExtResource("1_tynu8")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7gbp"]
+atlas = ExtResource("1_tynu8")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6u11"]
+atlas = ExtResource("1_tynu8")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdkw2"]
+atlas = ExtResource("1_tynu8")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8dnm5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45s46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_845cy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2oqqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q7ea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4365w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j1vj")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx6i7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76ane")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xu7p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7gbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6u11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdkw2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[resource]
+name = "pawn_blue"
+attack = 12
+health = 50
+speed = 10
+sprite_frames = SubResource("SpriteFrames_8dnm5")

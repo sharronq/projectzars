@@ -1,0 +1,114 @@
+[gd_resource type="CharData" load_steps=16 format=3 uid="uid://dn5rgihw7swjc"]
+
+[ext_resource type="Texture2D" uid="uid://bkgp748dev7i6" path="res://assets/characters/Torch_Red.png" id="1_jsoc5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lb05k"]
+atlas = ExtResource("1_jsoc5")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oklw"]
+atlas = ExtResource("1_jsoc5")
+region = Rect2(192, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sefs6"]
+atlas = ExtResource("1_jsoc5")
+region = Rect2(384, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftgy6"]
+atlas = ExtResource("1_jsoc5")
+region = Rect2(576, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i562l"]
+atlas = ExtResource("1_jsoc5")
+region = Rect2(768, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvfe4"]
+atlas = ExtResource("1_jsoc5")
+region = Rect2(960, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep7fr"]
+atlas = ExtResource("1_jsoc5")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r60fa"]
+atlas = ExtResource("1_jsoc5")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbypn"]
+atlas = ExtResource("1_jsoc5")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xypu4"]
+atlas = ExtResource("1_jsoc5")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncjub"]
+atlas = ExtResource("1_jsoc5")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uswhy"]
+atlas = ExtResource("1_jsoc5")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxh6i"]
+atlas = ExtResource("1_jsoc5")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_68med"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lb05k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oklw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sefs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftgy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i562l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvfe4")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ep7fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r60fa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbypn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xypu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncjub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uswhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxh6i")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[resource]
+name = "torch_red"
+attack = 10
+health = 50
+speed = 12
+sprite_frames = SubResource("SpriteFrames_68med")
