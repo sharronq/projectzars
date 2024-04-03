@@ -7,6 +7,8 @@ func update():
 		$Sprite.sprite_frames = data.sprite_frames
 		$Sprite.animation = "idle"
 		$Sprite.play()
+		$HPLabel.text = str(data.getCurrentHealth()) + "/" + str(data.getHealth())
+		$HPBar.value = data.getCurrentHealth() * 100 / data.getHealth()
 		visible = true
 	else:
 		visible = false

@@ -5,14 +5,15 @@ extends Battler
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	zars.resize(8)
-	zars[0] = preload("res://characters/warrior_yellow.tres")
-	zars[1] = preload("res://characters/warrior_blue.tres")
-	zars[2] = preload("res://characters/pawn_blue.tres")
-	zars[3] = preload("res://characters/archer_blue.tres")
-	zars[4] = preload("res://characters/pawn_red.tres")
-	zars[5] = preload("res://characters/torch_red.tres")
-	zars[6] = preload("res://characters/pawn_red.tres")
-	zars[7] = preload("res://characters/torch_red.tres")
+	zars[0] = preload("res://characters/warrior_yellow.tres").duplicate()
+	zars[1] = preload("res://characters/warrior_blue.tres").duplicate()
+	zars[2] = preload("res://characters/pawn_blue.tres").duplicate()
+	zars[3] = preload("res://characters/archer_blue.tres").duplicate()
+	zars[4] = preload("res://characters/pawn_red.tres").duplicate()
+	zars[5] = preload("res://characters/torch_red.tres").duplicate()
+	zars[6] = preload("res://characters/pawn_red.tres").duplicate()
+	zars[7] = preload("res://characters/torch_red.tres").duplicate()
+	startBattle()
 	updateAll()
 
 func updateAll():
