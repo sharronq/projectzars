@@ -17,6 +17,8 @@ private:
   int speed_;
   Ref<SpriteFrames> animation_;
 
+  int current_health;
+
 protected:
   static void _bind_methods();
 
@@ -40,6 +42,9 @@ public:
 
   Ref<SpriteFrames> getAnimation() const;
   void setAnimation(const Ref<SpriteFrames> anim);
+
+  int getCurrentHealth() const;
+  void setCurrentHealth(const int new_current);
 
   // print method for debug purposes
   void printCharacter();

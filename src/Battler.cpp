@@ -12,8 +12,10 @@ void Battler::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("setTurnOrder", "new_turn_order"), &Battler::setTurnOrder);
   ClassDB::add_property("Battler", PropertyInfo(Variant::ARRAY, "turn_order", PROPERTY_HINT_ARRAY_TYPE, "int", PROPERTY_USAGE_READ_ONLY), "setTurnOrder", "getTurnOrder");
 
+  ClassDB::bind_method(D_METHOD("getCurrentTurn"), &Battler::getCurrentTurn);
   ClassDB::bind_method(D_METHOD("startBattle"), &Battler::startBattle);
   ClassDB::bind_method(D_METHOD("printBattle"), &Battler::printBattle);
+  ClassDB::bind_method(D_METHOD("playNextTurn"), &Battler::playNextTurn);
 }
 
 // constructor and destructor
@@ -38,6 +40,10 @@ void Battler::setTurnOrder(const TypedArray<int> new_turn_order) {
   turn_order = new_turn_order;
 }
 
+int Battler::getCurrentTurn() const {
+  return current_turn;
+}
+
 // member functions for back end
 void Battler::findTurnOrder() {
   turn_order.clear();
@@ -45,7 +51,7 @@ void Battler::findTurnOrder() {
   int order;
   for (int i = 0; i < zars.size(); ++i) {
     ref_zars = zars[i];
-    if (!ref_zars.is_null()) {
+    if (!ref_zars.is_null() && ref_zars->getCurrentHealth() > 0) {
       turn_order.push_back((ref_zars->getSpeed() * zars.size()) + i);
     }
   }
@@ -70,7 +76,7 @@ int Battler::getEnemyOf(const int attacker) const {
   }
   for (int i = start; i < start + zars.size() / 2; ++i) {
     ref_zars = zars[i];
-    if (!ref_zars.is_null()) {
+    if (!ref_zars.is_null() && ref_zars->getCurrentHealth() > 0) {
       enemies.push_back(i);
     }
   }
@@ -84,12 +90,14 @@ void Battler::startBattle() {
   for (int i = 0; i < zars.size() / 2; ++i) {
     ref_zars = zars[i];
     if (!ref_zars.is_null()) {
+      ref_zars->setCurrentHealth(ref_zars->getHealth());
       team_a++;
     }
   }
   for (int i = zars.size() / 2; i < zars.size(); ++i) {
     ref_zars = zars[i];
     if (!ref_zars.is_null()) {
+      ref_zars->setCurrentHealth(ref_zars->getHealth());
       team_b++;
     }
   }
@@ -107,8 +115,8 @@ void Battler::playNextTurn() {
   UtilityFunctions::print("Turn ", current_turn, ": Attacker slot ", attacker, " attacked victim slot ", victim);
   Ref<CharData> ref_attacker = zars[attacker];
   Ref<CharData> ref_victim = zars[victim];
-  ref_victim->setHealth(ref_victim->getHealth() - ref_attacker->getAttack());
-  if (ref_victim->getHealth() <= 0) {
+  ref_victim->setCurrentHealth(ref_victim->getCurrentHealth() - ref_attacker->getAttack());
+  if (ref_victim->getCurrentHealth() <= 0) {
     UtilityFunctions::print("Victim slot ", victim, " died!");
     zars[victim].clear();
     int victim_order = turn_order.find(victim);
