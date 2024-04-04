@@ -1,13 +1,10 @@
 extends LineEdit
 
-signal user_not_found
-signal wrong_password
+signal login_error
+signal login_successful
 signal no_username
 signal no_password
-
-# Dummy data
-#var user_dict = {"Sharron": "password"}
-#var password = ""
+signal signup_successful
 
 func _ready():
 	grab_focus() # Starts cursor on login text box
@@ -17,9 +14,6 @@ func _ready():
 	Firebase.Auth.signup_failed.connect(on_signup_failed)
 	
 	await load_auth_succeeded()
-
-func _process(_delta):
-	pass
 
 func _on_login_pressed():
 	var email = text
@@ -33,7 +27,6 @@ func _on_login_pressed():
 
 	Firebase.Auth.login_with_email_and_password(email, password)
 
-
 func _on_register_pressed():
 	var email = text
 	var password = $"../Password".text
@@ -45,26 +38,30 @@ func _on_register_pressed():
 		return
 	
 	Firebase.Auth.signup_with_email_and_password(email, password)
-	
-
-
 
 #Sign up success
 #1) Prompt the user a message
 #2) Move to LoadSave scene
 func on_login_succeeded(auth):
+	$"../Label".text = "Login successful!"
+	$"../Label".show()
 	Firebase.Auth.save_auth(auth)
 	#await SaveLoadManager.new()
+	
+	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://scenes/LoadSave.tscn")
-
 
 #Sign up success
 #1) Prompt the user a message
 #2) Save username to file
 func on_signup_succeeded(auth):
+	$"../Label".text = "Registration successful!"
+	$"../Label".show()
 	Firebase.Auth.save_auth(auth)
+	
+	await get_tree().create_timer(2).timeout
+	get_tree().change_scene_to_file("res://scenes/LoadSave.tscn")
 	#SaveLoadManager.create_new_user(auth)
-
 
 #Login in failure
 #Prompt the user a message
@@ -72,18 +69,23 @@ func on_login_failed(error_code, message):
 	if(message == "INVALID_LOGIN_CREDENTIALS"):
 		print(message)
 		print(error_code)
-		user_not_found.emit()
-	else:
-		print(message)
-		wrong_password.emit()
-
+		$"../Label".text = "Incorrect email or password. 
+		Please try again or register with the button below."
+		$"../Label".show()
 
 #Sign up failure
 #Prompt the user a message
 func on_signup_failed(error_code, message):
-	$"../Label".text = message
+	print(message)
+	print(error_code)
+	if message == "INVALID_EMAIL":
+		$"../Label".text = "Please enter a valid email."
+	elif message == "WEAK_PASSWORD : Password should be at least 6 characters":
+		$"../Label".text = "Password should be at least 6 characters."
+	elif message == "EMAIL_EXISTS":
+		$"../Label".text = "An account with this email already exists."
+	
 	$"../Label".show()
-
 
 #Remember user's username from previous successful login attempt
 #DO NOT MODIFY THE CODE

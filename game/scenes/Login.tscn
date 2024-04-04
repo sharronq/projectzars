@@ -59,9 +59,9 @@ caret_blink = true
 secret = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = 21.0
+offset_left = 3.0
 offset_top = 134.0
-offset_right = 1163.0
+offset_right = 1148.0
 offset_bottom = 199.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_obcti")
@@ -72,7 +72,6 @@ script = ExtResource("6_crvb2")
 [connection signal="pressed" from="Login" to="Username" method="_on_login_pressed"]
 [connection signal="pressed" from="Login" to="Label" method="_on_login_pressed"]
 [connection signal="pressed" from="Register" to="Username" method="_on_register_pressed"]
+[connection signal="login_error" from="Username" to="Label" method="_on_username_login_error"]
 [connection signal="no_password" from="Username" to="Label" method="_on_username_no_password"]
 [connection signal="no_username" from="Username" to="Label" method="_on_username_no_username"]
-[connection signal="user_not_found" from="Username" to="Label" method="_on_username_user_not_found"]
-[connection signal="wrong_password" from="Username" to="Label" method="_on_username_wrong_password"]

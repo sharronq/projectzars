@@ -8,23 +8,15 @@ func _ready():
 func _process(_delta):
 	pass
 
-func _on_username_user_not_found():
-	hide()
-	text = "No account by that name. 
-Please register using the button below or log in as a guest."
-	show()
-
-func _on_username_wrong_password():
-	hide()
-	text = "Incorrect password. Please try again."
-	show()
-	
 func _on_username_no_password():
-	hide()
 	text = "Please enter a password."
 	show()
 
 func _on_username_no_username():
-	hide()
 	text = "Please enter a username."
+	show()
+
+func _on_username_login_error():
+	text = "Wrong username or password. Please try again or register
+	using the button below."
 	show()

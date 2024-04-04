@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm8moysqd5ift"]
+[gd_scene load_steps=6 format=3 uid="uid://bm8moysqd5ift"]
 
 [ext_resource type="Texture2D" uid="uid://b071wk4h2dqvh" path="res://assets/bgs/bg_r_13.png" id="1_welhg"]
 [ext_resource type="Script" path="res://Scripts/NewScene.gd" id="1_y14eo"]
 [ext_resource type="Script" path="res://Scripts/BackScene.gd" id="2_17lrs"]
+[ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="4_j15dw"]
+[ext_resource type="Script" path="res://Scripts/SaveSlotContainer.gd" id="4_ng3jc"]
 
 [node name="LoadSave" type="Node2D"]
 
@@ -11,32 +13,84 @@ position = Vector2(579, 325)
 scale = Vector2(0.803309, 0.803309)
 texture = ExtResource("1_welhg")
 
-[node name="Slot1" type="Button" parent="."]
-offset_left = 163.0
-offset_top = 60.0
-offset_right = 968.0
-offset_bottom = 176.0
-text = "Save slot 1"
+[node name="Load1" type="Button" parent="BgR13"]
+offset_left = 405.821
+offset_top = -295.03
+offset_right = 578.821
+offset_bottom = -226.03
+text = "Load"
 script = ExtResource("1_y14eo")
+
+[node name="Load2" type="Button" parent="BgR13"]
+offset_left = 405.821
+offset_top = -109.547
+offset_right = 578.821
+offset_bottom = -40.5469
+text = "Load"
+
+[node name="Load3" type="Button" parent="BgR13"]
+offset_left = 405.821
+offset_top = 80.9153
+offset_right = 578.821
+offset_bottom = 149.915
+text = "Load"
 
 [node name="Slot2" type="Button" parent="."]
 offset_left = 165.0
 offset_top = 209.0
-offset_right = 970.0
+offset_right = 845.0
 offset_bottom = 325.0
 text = "Save slot 2"
 
 [node name="Slot3" type="Button" parent="."]
 offset_left = 166.0
 offset_top = 361.0
-offset_right = 971.0
+offset_right = 846.0
 offset_bottom = 477.0
 text = "Save slot 3"
 
 [node name="Back" type="Button" parent="."]
-offset_left = 451.0
+offset_left = 360.0
 offset_top = 527.0
-offset_right = 658.0
+offset_right = 567.0
 offset_bottom = 596.0
 text = "Back"
 script = ExtResource("2_17lrs")
+
+[node name="Save1" type="Container" parent="."]
+offset_left = 166.0
+offset_top = 49.0
+offset_right = 844.0
+offset_bottom = 168.0
+script = ExtResource("4_ng3jc")
+
+[node name="Background" type="ColorRect" parent="Save1"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.607843)
+
+[node name="New save" type="Label" parent="Save1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 30
+text = "New save"
+horizontal_alignment = 1
+
+[node name="Rank" type="Label" parent="Save1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 30
+text = "Rank: 1"
+horizontal_alignment = 2
+
+[node name="Last save" type="Label" parent="Save1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 30
+text = "Last save: 1/1/2024 00:00"
+horizontal_alignment = 2
+
+[node name="Player name" type="Label" parent="Save1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 30
+text = "Player Name"
