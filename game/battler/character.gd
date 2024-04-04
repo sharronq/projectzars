@@ -10,7 +10,9 @@ func update():
 		$Sprite.animation = "idle"
 		$Sprite.play()
 		$HPLabel.text = str(data.getCurrentHealth()) + "/" + str(data.getHealth())
-		$HPBar.value = data.getCurrentHealth() * 100 / data.getHealth()
+		var tween = get_tree().create_tween()
+		tween.tween_property($HPBar, "value", data.getCurrentHealth() * 100 / float(data.getHealth()), 0.5)
+		#$HPBar.value = data.getCurrentHealth() * 100 / data.getHealth()
 		visible = true
 	else:
 		visible = false
