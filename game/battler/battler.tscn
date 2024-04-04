@@ -47,4 +47,5 @@ offset_top = 456.0
 offset_right = 948.0
 offset_bottom = 552.0
 
+[connection signal="battle_ended" from="." to="." method="_on_battle_ended"]
 [connection signal="turn_played" from="." to="." method="_on_turn_played"]

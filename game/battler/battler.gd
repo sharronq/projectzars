@@ -45,3 +45,9 @@ func attackFinished():
 
 func _on_turn_played(attacker, victim, damage):
 	characters[attacker].playAttack()
+
+func _on_battle_ended(members_left):
+	if (members_left):
+		print("victory")
+	else:
+		print("defeat")

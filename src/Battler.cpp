@@ -13,6 +13,7 @@ void Battler::_bind_methods() {
   ClassDB::add_property("Battler", PropertyInfo(Variant::ARRAY, "turn_order", PROPERTY_HINT_ARRAY_TYPE, "int", PROPERTY_USAGE_READ_ONLY), "setTurnOrder", "getTurnOrder");
 
   ADD_SIGNAL(MethodInfo("turn_played", PropertyInfo(Variant::INT, "attacker"), PropertyInfo(Variant::INT, "victim"), PropertyInfo(Variant::INT, "damage")));
+  ADD_SIGNAL(MethodInfo("battle_ended", PropertyInfo(Variant::INT, "members_left")));
 
   ClassDB::bind_method(D_METHOD("getCurrentTurn"), &Battler::getCurrentTurn);
   ClassDB::bind_method(D_METHOD("startBattle"), &Battler::startBattle);
@@ -110,6 +111,7 @@ void Battler::startBattle() {
 
 void Battler::playNextTurn() {
   if (team_a == 0 || team_b == 0) {
+    emit_signal("battle_ended", team_a);
     return;
   }
   int attacker = turn_order[current_turn];
