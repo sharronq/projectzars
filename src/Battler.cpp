@@ -12,6 +12,8 @@ void Battler::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("setTurnOrder", "new_turn_order"), &Battler::setTurnOrder);
   ClassDB::add_property("Battler", PropertyInfo(Variant::ARRAY, "turn_order", PROPERTY_HINT_ARRAY_TYPE, "int", PROPERTY_USAGE_READ_ONLY), "setTurnOrder", "getTurnOrder");
 
+  ADD_SIGNAL(MethodInfo("turn_played", PropertyInfo(Variant::INT, "attacker"), PropertyInfo(Variant::INT, "victim"), PropertyInfo(Variant::INT, "damage")));
+
   ClassDB::bind_method(D_METHOD("getCurrentTurn"), &Battler::getCurrentTurn);
   ClassDB::bind_method(D_METHOD("startBattle"), &Battler::startBattle);
   ClassDB::bind_method(D_METHOD("printBattle"), &Battler::printBattle);
@@ -116,6 +118,7 @@ void Battler::playNextTurn() {
   Ref<CharData> ref_attacker = zars[attacker];
   Ref<CharData> ref_victim = zars[victim];
   ref_victim->setCurrentHealth(ref_victim->getCurrentHealth() - ref_attacker->getAttack());
+  emit_signal("turn_played", attacker, victim, ref_attacker->getAttack());
   if (ref_victim->getCurrentHealth() <= 0) {
     UtilityFunctions::print("Victim slot ", victim, " died!");
     zars[victim].clear();

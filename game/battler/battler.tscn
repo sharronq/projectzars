@@ -39,3 +39,5 @@ position = Vector2(960, 150)
 
 [node name="Character7" parent="Characters" instance=ExtResource("2_51lph")]
 position = Vector2(1056, 342)
+
+[connection signal="turn_played" from="." to="." method="_on_turn_played"]

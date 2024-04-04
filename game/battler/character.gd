@@ -2,6 +2,8 @@ extends Node2D
 
 @export var data: CharData
 
+signal attack_played
+
 func update():
 	if (data):
 		$Sprite.sprite_frames = data.sprite_frames
@@ -27,3 +29,4 @@ func _ready():
 func _on_sprite_animation_finished():
 	$Sprite.animation = "idle"
 	$Sprite.play()
+	attack_played.emit()
