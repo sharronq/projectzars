@@ -10,6 +10,8 @@ var delete_files = [
 	"index_file", "game_save_1", "game_save_2", "game_save_3"
 	]
 
+
+
 signal save_successful()
 signal load_successful()
 signal delete_successful()
@@ -169,7 +171,6 @@ func resume_currentFight():
 #***************** Delete actual game section ******************
 func delete_game_save_internet(current_game_version : int):
 	var game_version = "game_save_" + str(current_game_version)
-	
 	if(index_file[game_version]["Status"] == "inactive"):
 		print("The game record is empty!")
 		return

@@ -46,9 +46,9 @@ func on_login_succeeded(auth):
 	$"../Label".text = "Login successful!"
 	$"../Label".show()
 	Firebase.Auth.save_auth(auth)
-	#await SaveLoadManager.new()
+	await SaveLoadManager.new()
 	
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://scenes/LoadSave.tscn")
 
 #Sign up success
@@ -59,9 +59,9 @@ func on_signup_succeeded(auth):
 	$"../Label".show()
 	Firebase.Auth.save_auth(auth)
 	
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://scenes/LoadSave.tscn")
-	#SaveLoadManager.create_new_user(auth)
+	SaveLoadManager.create_new_user(auth)
 
 #Login in failure
 #Prompt the user a message

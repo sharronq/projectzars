@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://c70rk3scy5vvq"]
 
 [ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="1_crplm"]
+[ext_resource type="Script" path="res://Scripts/NavBar.gd" id="1_l4mum"]
 [ext_resource type="StyleBox" uid="uid://b23on3vnskn3s" path="res://resources/navbar_disabled.tres" id="2_a427j"]
 [ext_resource type="StyleBox" uid="uid://7pyavrmageb5" path="res://resources/navbar_enabled.tres" id="2_wd30j"]
-[ext_resource type="Script" path="res://Scripts/NewScene.gd" id="3_e0qlq"]
 [ext_resource type="StyleBox" uid="uid://dix82pa27dcyp" path="res://resources/navbar_hover.tres" id="3_m7js8"]
 
 [node name="NavBar" type="Control"]
@@ -13,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_l4mum")
 
 [node name="Home" type="Button" parent="."]
 layout_mode = 0
@@ -27,7 +28,6 @@ theme_override_styles/normal = ExtResource("2_wd30j")
 theme_override_styles/hover = ExtResource("3_m7js8")
 theme_override_styles/disabled = ExtResource("2_a427j")
 text = "Home"
-script = ExtResource("3_e0qlq")
 
 [node name="View characters" type="Button" parent="."]
 layout_mode = 0
@@ -42,7 +42,6 @@ theme_override_styles/normal = ExtResource("2_wd30j")
 theme_override_styles/hover = ExtResource("3_m7js8")
 theme_override_styles/disabled = ExtResource("2_a427j")
 text = "View characters"
-script = ExtResource("3_e0qlq")
 
 [node name="Battle" type="Button" parent="."]
 layout_mode = 0
@@ -57,7 +56,6 @@ theme_override_styles/normal = ExtResource("2_wd30j")
 theme_override_styles/hover = ExtResource("3_m7js8")
 theme_override_styles/disabled = ExtResource("2_a427j")
 text = "Battle"
-script = ExtResource("3_e0qlq")
 
 [node name="Settings" type="Button" parent="."]
 layout_mode = 0
@@ -72,4 +70,14 @@ theme_override_styles/normal = ExtResource("2_wd30j")
 theme_override_styles/hover = ExtResource("3_m7js8")
 theme_override_styles/disabled = ExtResource("2_a427j")
 text = "Settings"
-script = ExtResource("3_e0qlq")
+
+[node name="Go_to_saved_game_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 736.0
+offset_top = 382.0
+offset_right = 1129.0
+offset_bottom = 456.0
+theme_override_font_sizes/font_size = 30
+text = "Go_to_saved_game_button"
+
+[connection signal="pressed" from="Go_to_saved_game_button" to="." method="_on_go_to_saved_game_button_pressed"]

@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/SaveSlotContainer.gd" id="4_ng3jc"]
 
 [node name="LoadSave" type="Node2D"]
+script = ExtResource("1_y14eo")
 
 [node name="BgR13" type="Sprite2D" parent="."]
 position = Vector2(579, 325)
@@ -14,25 +15,11 @@ scale = Vector2(0.803309, 0.803309)
 texture = ExtResource("1_welhg")
 
 [node name="Load1" type="Button" parent="BgR13"]
-offset_left = 405.821
-offset_top = -295.03
-offset_right = 578.821
-offset_bottom = -226.03
-text = "Load"
-script = ExtResource("1_y14eo")
-
-[node name="Load2" type="Button" parent="BgR13"]
-offset_left = 405.821
-offset_top = -109.547
-offset_right = 578.821
-offset_bottom = -40.5469
-text = "Load"
-
-[node name="Load3" type="Button" parent="BgR13"]
-offset_left = 405.821
-offset_top = 80.9153
-offset_right = 578.821
-offset_bottom = 149.915
+offset_left = 407.066
+offset_top = -291.295
+offset_right = 580.066
+offset_bottom = -222.295
+theme_override_font_sizes/font_size = 30
 text = "Load"
 
 [node name="Slot2" type="Button" parent="."]
@@ -94,3 +81,25 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("4_j15dw")
 theme_override_font_sizes/font_size = 30
 text = "Player Name"
+
+[node name="Save" type="Button" parent="."]
+offset_left = 902.0
+offset_top = 167.0
+offset_right = 1046.0
+offset_bottom = 217.0
+theme_override_font_sizes/font_size = 30
+text = "Save"
+
+[node name="Comfirm" type="Button" parent="."]
+offset_left = 905.0
+offset_top = 236.0
+offset_right = 1049.0
+offset_bottom = 283.0
+theme_override_font_sizes/font_size = 30
+text = "Comfirm"
+
+[connection signal="pressed" from="BgR13/Load1" to="." method="_on_load_1_pressed"]
+[connection signal="pressed" from="Slot2" to="." method="_on_slot_2_pressed"]
+[connection signal="pressed" from="Slot3" to="." method="_on_slot_3_pressed"]
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Comfirm" to="." method="_on_comfirm_pressed"]

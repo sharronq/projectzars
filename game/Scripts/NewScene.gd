@@ -1,4 +1,12 @@
-extends Button
+extends Node2D
+
+#The number of game slot
+var game_version : int
+#mode between loading or saving file
+var load_save : String
+#index file
+var user_file : Dictionary
+
 
 # Dictionary keeps track of scene names and their next scene
 # Key: current scene; Value: next scene
@@ -9,32 +17,98 @@ var scene_dict = {
 }
 
 
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	initialize_button()
+											  # and calls function when it is pressed
+	var found = SaveLoadManager.check_currentFight_exist()
+	
+#Initialize the index file (database)
+	SaveLoadManager.load_successful.connect(load_successed)
+	SaveLoadManager.save_successful.connect(save_successed)
+	
+	game_version = -1
+	load_save = "load"
+	user_file = SaveLoadManager.get_index_file()
+
+
 func initialize_button():
 	if get_scene_name() == "Gamehome" && self.text == "Home":
 		self.disabled = true
 	if get_scene_name() == "Viewcharacters" && self.text == "View characters":
 		self.disabled = true
 
-# Called when button is pressed, transitions to new scene
-func button_pressed():
-	if get_tree() == null:
-		return
-	elif get_scene_name() not in scene_dict:
-		print("Scene not found")
-		return
-	var path = scene_dict[get_scene_name()]
-	get_tree().change_scene_to_file(path)
+
+
 
 func get_scene_name():
 	return get_tree().get_current_scene().name
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	initialize_button()
-	self.pressed.connect(self.button_pressed) # Checks if button is pressed
-											  # and calls function when it is pressed
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+
+
+# Called when load button is pressed, transitions to new scene
+func _on_load_1_pressed():
+	#get_tree().change_scene_to_file("res://scenes/GameHome.tscn")
+	#return
+	print("delete, load")
+	load_save = "load"
+
+
+func _on_save_pressed():
+	print("delete, save")
+	load_save = "save"
+	
+
+
+
+
+func _on_slot_2_pressed():
+	game_version = 2
+
+
+func _on_slot_3_pressed():
+	game_version = 3
+
+
+#central control of actual loading or saving file
+func _on_comfirm_pressed():
+	#If no game slot is being selected, prompt the user to select one
+	if(game_version == -1):
+		print("Print a message")
+		return
+
+	var current_game_version = "game_save_" + str(game_version)
+
+	
+	if(load_save == "save"):
+		SaveLoadManager.Save(game_version)
+		#When finish, change mode back to "load" for safety reason
+	else:
+		#Load the game from Firebase
+		SaveLoadManager.Load(game_version)
+
+
+
+
+
+#Return function by SaveLoadManager.Load()
+#When finish initialize the actual game content from Firebase, direct user to home page
+func load_successed():
+	var path = scene_dict[get_scene_name()]
+	get_tree().change_scene_to_file(path)
+
+func save_successed():
+	#After save the current game, update the slot information
+	print("Print a message")
+	pass
+
+
 

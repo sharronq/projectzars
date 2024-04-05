@@ -33,3 +33,5 @@ func _on_timer_timeout():
 		#0, 1: _animated_sprite.play("default")
 	
 	#_animated_sprite.stop()
+
+
