@@ -240,22 +240,22 @@ animations = [{
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="Bg15" type="Sprite2D" parent="."]
+[node name="bg" type="Sprite2D" parent="."]
 position = Vector2(575, 323.5)
 scale = Vector2(0.728022, 0.682598)
 texture = ExtResource("1_87kyk")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="frame" type="TextureRect" parent="."]
 z_index = -1
 offset_right = 1152.0
 offset_bottom = 647.0
 texture = ExtResource("1_cmgud")
 expand_mode = 1
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="sprite" type="CharacterBody2D" parent="."]
 script = ExtResource("4_ple0e")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="sprite"]
 position = Vector2(267, 513)
 scale = Vector2(1.32552, 1.32552)
 sprite_frames = SubResource("SpriteFrames_51af3")
@@ -273,4 +273,4 @@ theme_override_font_sizes/font_size = 25
 text = "Back to login"
 script = ExtResource("8_2hn1p")
 
-[connection signal="timeout" from="Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="sprite" method="_on_timer_timeout"]
