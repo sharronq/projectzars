@@ -26,6 +26,7 @@ theme_override_fonts/font = ExtResource("1_crplm")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_wd30j")
 theme_override_styles/hover = ExtResource("3_m7js8")
+theme_override_styles/pressed = ExtResource("2_wd30j")
 theme_override_styles/disabled = ExtResource("2_a427j")
 text = "Home"
 
@@ -80,4 +81,14 @@ offset_bottom = 456.0
 theme_override_font_sizes/font_size = 30
 text = "Go_to_saved_game_button"
 
+[node name="BattleDialog" type="ConfirmationDialog" parent="."]
+title = ""
+initial_position = 1
+size = Vector2i(300, 150)
+visible = true
+ok_button_text = "Start PVE"
+dialog_text = "Looking for a PvP battle...."
+
+[connection signal="pressed" from="View characters" to="." method="_on_view_characters_pressed"]
+[connection signal="pressed" from="Battle" to="." method="_on_battle_pressed"]
 [connection signal="pressed" from="Go_to_saved_game_button" to="." method="_on_go_to_saved_game_button_pressed"]

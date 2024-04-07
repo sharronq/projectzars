@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://coc2gf6c0eyre" path="res://assets/bgs/bg_f_1.png" id="1_fuims"]
 [ext_resource type="FontFile" uid="uid://bq3x0g6opxv7u" path="res://assets/fonts/MorrisRomanAlternate-Black.ttf" id="1_obcti"]
 [ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="5_2cjui"]
-[ext_resource type="Script" path="res://Scripts/Username.gd" id="5_ycscd"]
+[ext_resource type="Script" path="res://Scripts/LoginManager.gd" id="5_ycscd"]
 [ext_resource type="Script" path="res://Scripts/user_not_found.gd" id="6_crvb2"]
 
 [sub_resource type="Theme" id="Theme_5gk6o"]
