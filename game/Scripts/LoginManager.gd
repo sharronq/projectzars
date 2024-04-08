@@ -43,9 +43,9 @@ func _on_register_pressed():
 #1) Prompt the user a message
 #2) Move to LoadSave scene
 func on_login_succeeded(auth):
+	Firebase.Auth.save_auth(auth)
 	$"../Label".text = "Login successful!"
 	$"../Label".show()
-	Firebase.Auth.save_auth(auth)
 	await SaveLoadManager.new()
 	
 	await get_tree().create_timer(1).timeout
@@ -55,13 +55,11 @@ func on_login_succeeded(auth):
 #1) Prompt the user a message
 #2) Save username to file
 func on_signup_succeeded(auth):
+	Firebase.Auth.save_auth(auth)
+	SaveLoadManager.create_new_user(auth)
+	
 	$"../Label".text = "Registration successful!"
 	$"../Label".show()
-	Firebase.Auth.save_auth(auth)
-	
-	await get_tree().create_timer(1).timeout
-	get_tree().change_scene_to_file("res://scenes/LoadSave.tscn")
-	SaveLoadManager.create_new_user(auth)
 
 #Login in failure
 #Prompt the user a message
