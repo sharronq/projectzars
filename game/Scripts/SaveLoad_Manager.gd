@@ -77,7 +77,9 @@ func load_index_file_internet():
 #***************** Activate index file section ******************
 func update_index_file(current_game_version : int):
 	var game_version = "game_save_" + str(current_game_version)
+	print("delete", game_version)
 	index_file[game_version]["Status"] = "active"
+	#index_file[game_version]["Status"] = "sssssss"
 	index_file[game_version]["Level"] = game_save["Level"]
 	index_file[game_version]["Time"] = Time.get_datetime_string_from_system(false, true)
 	

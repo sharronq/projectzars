@@ -85,12 +85,9 @@ func _on_comfirm_pressed():
 		print("Print a message")
 		return
 
-	var current_game_version = "game_save_" + str(game_version)
-
 	
 	if(load_save == "save"):
 		SaveLoadManager.Save(game_version)
-		#When finish, change mode back to "load" for safety reason
 	else:
 		#Load the game from Firebase
 		SaveLoadManager.Load(game_version)
