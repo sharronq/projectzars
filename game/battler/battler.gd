@@ -45,6 +45,8 @@ func attackFinished():
 
 func _on_turn_played(attacker, victim, damage):
 	characters[attacker].playAttack()
+	characters[victim].data = zars[victim]
+	characters[victim].playHurt(damage)
 
 func _on_battle_ended(members_left):
 	if (members_left):
