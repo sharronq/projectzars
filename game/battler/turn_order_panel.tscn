@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bda6sqog2eh1o"]
+
+[ext_resource type="Script" path="res://battler/turn_order_panel.gd" id="1_gr1nh"]
+
+[node name="TurnOrderPanel" type="CenterContainer"]
+custom_minimum_size = Vector2(96, 96)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_gr1nh")
+
+[node name="BGColor" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+color = Color(0, 0.498039, 1, 0.498039)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(48, 48)

@@ -1,10 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1yaeofo5gmdp"]
+[gd_scene load_steps=4 format=3 uid="uid://d1yaeofo5gmdp"]
 
 [ext_resource type="Script" path="res://battler/character.gd" id="1_w4lab"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ld6q"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbpme"]
+bg_color = Color(0.585847, 1.8049e-06, 4.33177e-07, 1)
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_w4lab")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+
+[node name="HPBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(96, 24)
+offset_left = -48.0
+offset_top = -96.0
+offset_right = 48.0
+offset_bottom = -72.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4ld6q")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rbpme")
+show_percentage = false
+
+[node name="HPLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(96, 24)
+offset_left = -48.0
+offset_top = -96.0
+offset_right = 48.0
+offset_bottom = -72.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

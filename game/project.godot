@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 SaveLoadManager="*res://scenes/save_load_manager.tscn"
+Global="*res://Scripts/Global.gd"
 
 [editor_plugins]
 

@@ -32,6 +32,8 @@ public:
   TypedArray<int> getTurnOrder() const;
   void setTurnOrder(const TypedArray<int> new_turn_order);
 
+  int getCurrentTurn() const;
+
   // member functions for back end
   void findTurnOrder();
   int getEnemyOf(const int attacker) const;
