@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c70rk3scy5vvq"]
+[gd_scene load_steps=7 format=3 uid="uid://c70rk3scy5vvq"]
 
 [ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="1_crplm"]
 [ext_resource type="Script" path="res://Scripts/NavBar.gd" id="1_l4mum"]
 [ext_resource type="StyleBox" uid="uid://b23on3vnskn3s" path="res://resources/navbar_disabled.tres" id="2_a427j"]
 [ext_resource type="StyleBox" uid="uid://7pyavrmageb5" path="res://resources/navbar_enabled.tres" id="2_wd30j"]
 [ext_resource type="StyleBox" uid="uid://dix82pa27dcyp" path="res://resources/navbar_hover.tres" id="3_m7js8"]
+[ext_resource type="StyleBox" uid="uid://c4emslis10mjk" path="res://resources/save_button.tres" id="6_7gac8"]
 
 [node name="NavBar" type="Control"]
 layout_mode = 3
@@ -74,21 +75,15 @@ text = "Settings"
 
 [node name="Go_to_saved_game_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 736.0
-offset_top = 382.0
-offset_right = 1129.0
-offset_bottom = 456.0
+offset_left = 1032.0
+offset_top = 60.0
+offset_right = 1091.0
+offset_bottom = 116.0
 theme_override_font_sizes/font_size = 30
-text = "Go_to_saved_game_button"
+theme_override_styles/normal = ExtResource("6_7gac8")
 
-[node name="BattleDialog" type="ConfirmationDialog" parent="."]
-title = ""
-initial_position = 1
-size = Vector2i(300, 150)
-visible = true
-ok_button_text = "Start PVE"
-dialog_text = "Looking for a PvP battle...."
-
+[connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="View characters" to="." method="_on_view_characters_pressed"]
 [connection signal="pressed" from="Battle" to="." method="_on_battle_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Go_to_saved_game_button" to="." method="_on_go_to_saved_game_button_pressed"]

@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://55uimut1rpr3"]
+[gd_scene load_steps=2 format=3 uid="uid://55uimut1rpr3"]
+
+[ext_resource type="PackedScene" uid="uid://c70rk3scy5vvq" path="res://scenes/NavBar.tscn" id="1_cc0xs"]
 
 [node name="CharacterCollection" type="Node2D"]
+
+[node name="NavBar" parent="." instance=ExtResource("1_cc0xs")]
