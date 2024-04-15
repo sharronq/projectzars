@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://4wi8ncrop70p"]
+
+[ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://assets/bgs/gallery.png" id="1_ctdrn"]
+[ext_resource type="PackedScene" uid="uid://c70rk3scy5vvq" path="res://scenes/NavBar.tscn" id="2_mt12o"]
+[ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="3_fhh4f"]
+[ext_resource type="Theme" uid="uid://df0hnq8k7t4jd" path="res://resources/defaulttext.tres" id="4_0puqj"]
+
+[node name="BattleSelect" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_ctdrn")
+
+[node name="NavBar" parent="." instance=ExtResource("2_mt12o")]
+offset_top = 3.05176e-05
+offset_bottom = 3.05176e-05
+
+[node name="PvE" type="Label" parent="."]
+offset_left = 136.0
+offset_top = 46.0
+offset_right = 346.0
+offset_bottom = 107.0
+theme_override_fonts/font = ExtResource("3_fhh4f")
+theme_override_font_sizes/font_size = 50
+text = "PvE"
+horizontal_alignment = 1
+
+[node name="PvP" type="Label" parent="."]
+offset_left = 755.0
+offset_top = 51.0
+offset_right = 1053.0
+offset_bottom = 208.0
+theme_override_fonts/font = ExtResource("3_fhh4f")
+theme_override_font_sizes/font_size = 50
+text = "PvP"
+horizontal_alignment = 1
+
+[node name="Level label" type="Label" parent="."]
+offset_left = 97.0
+offset_top = 120.0
+offset_right = 395.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("3_fhh4f")
+theme_override_font_sizes/font_size = 30
+text = "Choose enemy level"
+horizontal_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="."]
+offset_left = 91.0
+offset_top = 161.0
+offset_right = 415.0
+offset_bottom = 206.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 179.0
+offset_top = 239.0
+offset_right = 300.0
+offset_bottom = 286.0
+theme = ExtResource("4_0puqj")
+theme_override_font_sizes/font_size = 25
+text = "Start"
