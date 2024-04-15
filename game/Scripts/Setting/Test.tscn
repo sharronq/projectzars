@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://roiyvwuuynbb"]
+
+[ext_resource type="Script" path="res://Scripts/Setting/Test.gd" id="1_7ehgs"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_7ehgs")
+
+[node name="Background_Slider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 135.0
+offset_right = 918.0
+offset_bottom = 200.0
+
+[node name="BVolumn_percentage" type="Label" parent="Background_Slider"]
+layout_mode = 0
+offset_left = 652.0
+offset_top = -4.0
+offset_right = 766.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resolution_Option" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 275.0
+offset_right = 957.0
+offset_bottom = 371.0
+theme_override_font_sizes/font_size = 40
+
+[connection signal="value_changed" from="Background_Slider" to="." method="_on_background_slider_value_changed"]
+[connection signal="item_selected" from="Resolution_Option" to="." method="_on_resolution_option_item_selected"]

@@ -15,11 +15,20 @@ run/main_scene="res://scenes/Login.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://Scripts/Setting/default_bus_layout.tres"
+
 [autoload]
 
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 SaveLoadManager="*res://scenes/save_load_manager.tscn"
-Global="*res://Scripts/Global.gd"
+Settings="*res://scenes/Settings.tscn"
+
+[display]
+
+window/size/resizable=false
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
