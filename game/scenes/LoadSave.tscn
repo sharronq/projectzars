@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm8moysqd5ift"]
+[gd_scene load_steps=10 format=3 uid="uid://bm8moysqd5ift"]
 
 [ext_resource type="Texture2D" uid="uid://b071wk4h2dqvh" path="res://assets/bgs/bg_r_13.png" id="1_welhg"]
 [ext_resource type="Script" path="res://Scripts/NewScene.gd" id="1_y14eo"]
 [ext_resource type="Script" path="res://Scripts/BackScene.gd" id="2_17lrs"]
+[ext_resource type="FontFile" uid="uid://bq3x0g6opxv7u" path="res://assets/fonts/MorrisRomanAlternate-Black.ttf" id="3_5yxsy"]
+[ext_resource type="StyleBox" uid="uid://7pyavrmageb5" path="res://resources/navbar_enabled.tres" id="4_273iw"]
 [ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="4_j15dw"]
 [ext_resource type="Script" path="res://Scripts/SaveSlotContainer.gd" id="4_ng3jc"]
+[ext_resource type="StyleBox" uid="uid://dix82pa27dcyp" path="res://resources/navbar_hover.tres" id="5_gfip4"]
+[ext_resource type="Theme" uid="uid://df0hnq8k7t4jd" path="res://resources/defaulttext.tres" id="9_vwcyg"]
 
 [node name="LoadSave" type="Node2D"]
 script = ExtResource("1_y14eo")
@@ -15,12 +19,23 @@ scale = Vector2(0.803309, 0.803309)
 texture = ExtResource("1_welhg")
 
 [node name="Load1" type="Button" parent="BgR13"]
-offset_left = 407.066
-offset_top = -291.295
-offset_right = 580.066
-offset_bottom = -222.295
-theme_override_font_sizes/font_size = 30
+offset_left = 333.62
+offset_top = -288.805
+offset_right = 683.62
+offset_bottom = -219.805
+theme_override_fonts/font = ExtResource("3_5yxsy")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("4_273iw")
+theme_override_styles/hover = ExtResource("5_gfip4")
+theme_override_styles/pressed = ExtResource("4_273iw")
 text = "Load"
+
+[node name="Slot1" type="Button" parent="."]
+offset_left = 166.0
+offset_top = 55.0
+offset_right = 846.0
+offset_bottom = 171.0
+text = "Save slot 1"
 
 [node name="Slot2" type="Button" parent="."]
 offset_left = 165.0
@@ -37,18 +52,19 @@ offset_bottom = 477.0
 text = "Save slot 3"
 
 [node name="Back" type="Button" parent="."]
-offset_left = 360.0
-offset_top = 527.0
-offset_right = 567.0
-offset_bottom = 596.0
+offset_left = 889.0
+offset_top = 387.0
+offset_right = 1096.0
+offset_bottom = 456.0
 text = "Back"
 script = ExtResource("2_17lrs")
 
 [node name="Save1" type="Container" parent="."]
-offset_left = 166.0
-offset_top = 49.0
-offset_right = 844.0
-offset_bottom = 168.0
+visible = false
+offset_left = 130.0
+offset_top = 35.0
+offset_right = 808.0
+offset_bottom = 154.0
 script = ExtResource("4_ng3jc")
 
 [node name="Background" type="ColorRect" parent="Save1"]
@@ -56,6 +72,7 @@ layout_mode = 2
 color = Color(0, 0, 0, 0.607843)
 
 [node name="New save" type="Label" parent="Save1"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_j15dw")
 theme_override_font_sizes/font_size = 30
@@ -63,6 +80,7 @@ text = "New save"
 horizontal_alignment = 1
 
 [node name="Rank" type="Label" parent="Save1"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_j15dw")
 theme_override_font_sizes/font_size = 30
@@ -70,6 +88,7 @@ text = "Rank: 1"
 horizontal_alignment = 2
 
 [node name="Last save" type="Label" parent="Save1"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_j15dw")
 theme_override_font_sizes/font_size = 30
@@ -77,29 +96,48 @@ text = "Last save: 1/1/2024 00:00"
 horizontal_alignment = 2
 
 [node name="Player name" type="Label" parent="Save1"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_j15dw")
 theme_override_font_sizes/font_size = 30
 text = "Player Name"
 
 [node name="Save" type="Button" parent="."]
-offset_left = 902.0
+offset_left = 844.0
 offset_top = 167.0
-offset_right = 1046.0
-offset_bottom = 217.0
+offset_right = 1134.0
+offset_bottom = 222.0
+theme_override_fonts/font = ExtResource("3_5yxsy")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("4_273iw")
+theme_override_styles/hover = ExtResource("5_gfip4")
+theme_override_styles/pressed = ExtResource("4_273iw")
 text = "Save"
 
-[node name="Comfirm" type="Button" parent="."]
-offset_left = 905.0
+[node name="Confirm" type="Button" parent="."]
+offset_left = 845.0
 offset_top = 236.0
-offset_right = 1049.0
-offset_bottom = 283.0
+offset_right = 1135.0
+offset_bottom = 291.0
+theme_override_fonts/font = ExtResource("3_5yxsy")
 theme_override_font_sizes/font_size = 30
-text = "Comfirm"
+theme_override_styles/normal = ExtResource("4_273iw")
+theme_override_styles/hover = ExtResource("5_gfip4")
+theme_override_styles/pressed = ExtResource("4_273iw")
+text = "Confirm"
+
+[node name="save load text" type="Label" parent="."]
+offset_left = 17.0
+offset_top = 591.0
+offset_right = 357.0
+offset_bottom = 640.0
+theme = ExtResource("9_vwcyg")
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 40
 
 [connection signal="pressed" from="BgR13/Load1" to="." method="_on_load_1_pressed"]
+[connection signal="pressed" from="Slot1" to="." method="_on_slot_1_pressed"]
 [connection signal="pressed" from="Slot2" to="." method="_on_slot_2_pressed"]
 [connection signal="pressed" from="Slot3" to="." method="_on_slot_3_pressed"]
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="Comfirm" to="." method="_on_comfirm_pressed"]
+[connection signal="pressed" from="Confirm" to="." method="_on_comfirm_pressed"]
