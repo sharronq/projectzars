@@ -29,7 +29,8 @@ func _ready():
 	game_version = -1
 	load_save = "load"
 	user_file = SaveLoadManager.get_index_file()
-
+	
+	update_label()
 
 func initialize_button():
 	if get_scene_name() == "Gamehome" && self.text == "Home":
@@ -57,24 +58,14 @@ func _on_save_pressed():
 	
 func _on_slot_1_pressed():
 	game_version = 1
-	if load_save == "load":
-		saveload_label.text = "Loading: Slot 1"
-	elif load_save == "save":
-		saveload_label.text = "Saving to: Slot 1"
-	
+
 func _on_slot_2_pressed():
 	game_version = 2
-	if load_save == "load":
-		saveload_label.text = "Loading: Slot 2"
-	elif load_save == "save":
-		saveload_label.text = "Saving to: Slot 2"
+
 
 func _on_slot_3_pressed():
 	game_version = 3
-	if load_save == "load":
-		saveload_label.text = "Loading: Slot 3"
-	elif load_save == "save":
-		saveload_label.text = "Saving to: Slot 3"
+
 
 #central control of actual loading or saving file
 func _on_comfirm_pressed():
@@ -99,8 +90,11 @@ func load_successed():
 
 func save_successed():
 	#After save the current game, update the slot information
-	print("Print a message")
-	pass
+	update_label()
 
 
+func update_label():
+	for i in range(1, 4):
+		var game_save = "Slot" + str(i)
+		get_node(game_save).update_label(i)
 

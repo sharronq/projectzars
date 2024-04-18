@@ -108,14 +108,24 @@ func delete_all_index_file():
 
 func create_new_game_save():
 	game_save = {
-			"Name" : "null",
+			"Name" : "Eren",
 			"Age" : "-1",
 			"Level" : "1",
 			"Info" : "Be better"
 	}
+	game_save["char_collection"] = create_characters_file()
 
 
-
+func create_characters_file() -> Dictionary:
+	var char_file : Dictionary = {
+		"archer" = "lock",
+		"pawn_blue" = "lock",
+		"pawn_red" = "lock",
+		"torch_red" = "lock",
+		"warrior_blue" = "lock",
+		"warrior_yellow" = "lock"
+	}
+	return char_file
 #***************** Save actual game section ******************
 #Start a new game
 func save_game_save_internet(current_game_version : int):
@@ -210,6 +220,7 @@ func delete_currentFight():
 func create_new_user(auth):
 	var default_stat = {
 		"Status" : "inactive",
+		"Name" : "Eren",
 		"Level" : "-1",
 		"Time" : "-1"
 	}

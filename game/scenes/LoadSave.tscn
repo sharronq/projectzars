@@ -36,6 +36,32 @@ offset_top = 55.0
 offset_right = 846.0
 offset_bottom = 171.0
 text = "Save slot 1"
+script = ExtResource("4_ng3jc")
+
+[node name="Rank" type="Label" parent="Slot1"]
+visible = false
+offset_left = 598.0
+offset_top = 4.0
+offset_right = 672.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 2
+
+[node name="Last save" type="Label" parent="Slot1"]
+visible = false
+offset_left = 405.0
+offset_top = 79.0
+offset_right = 676.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 2
+
+[node name="Player name" type="Label" parent="Slot1"]
+visible = false
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 30
 
 [node name="Slot2" type="Button" parent="."]
 offset_left = 165.0
@@ -43,6 +69,32 @@ offset_top = 209.0
 offset_right = 845.0
 offset_bottom = 325.0
 text = "Save slot 2"
+script = ExtResource("4_ng3jc")
+
+[node name="Rank" type="Label" parent="Slot2"]
+visible = false
+offset_left = 598.0
+offset_top = 4.0
+offset_right = 672.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 2
+
+[node name="Last save" type="Label" parent="Slot2"]
+visible = false
+offset_left = 405.0
+offset_top = 79.0
+offset_right = 676.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 2
+
+[node name="Player name" type="Label" parent="Slot2"]
+visible = false
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 30
 
 [node name="Slot3" type="Button" parent="."]
 offset_left = 166.0
@@ -50,6 +102,32 @@ offset_top = 361.0
 offset_right = 846.0
 offset_bottom = 477.0
 text = "Save slot 3"
+script = ExtResource("4_ng3jc")
+
+[node name="Rank" type="Label" parent="Slot3"]
+visible = false
+offset_left = 598.0
+offset_top = 4.0
+offset_right = 672.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 2
+
+[node name="Last save" type="Label" parent="Slot3"]
+visible = false
+offset_left = 405.0
+offset_top = 79.0
+offset_right = 676.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 2
+
+[node name="Player name" type="Label" parent="Slot3"]
+visible = false
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 30
 
 [node name="Back" type="Button" parent="."]
 offset_left = 889.0
@@ -58,49 +136,6 @@ offset_right = 1096.0
 offset_bottom = 456.0
 text = "Back"
 script = ExtResource("2_17lrs")
-
-[node name="Save1" type="Container" parent="."]
-visible = false
-offset_left = 130.0
-offset_top = 35.0
-offset_right = 808.0
-offset_bottom = 154.0
-script = ExtResource("4_ng3jc")
-
-[node name="Background" type="ColorRect" parent="Save1"]
-layout_mode = 2
-color = Color(0, 0, 0, 0.607843)
-
-[node name="New save" type="Label" parent="Save1"]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j15dw")
-theme_override_font_sizes/font_size = 30
-text = "New save"
-horizontal_alignment = 1
-
-[node name="Rank" type="Label" parent="Save1"]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j15dw")
-theme_override_font_sizes/font_size = 30
-text = "Rank: 1"
-horizontal_alignment = 2
-
-[node name="Last save" type="Label" parent="Save1"]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j15dw")
-theme_override_font_sizes/font_size = 30
-text = "Last save: 1/1/2024 00:00"
-horizontal_alignment = 2
-
-[node name="Player name" type="Label" parent="Save1"]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j15dw")
-theme_override_font_sizes/font_size = 30
-text = "Player Name"
 
 [node name="Save" type="Button" parent="."]
 offset_left = 844.0
