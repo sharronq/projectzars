@@ -27,4 +27,4 @@ func _on_home_pressed():
 	get_tree().change_scene_to_file("res://scenes/Gamehome.tscn")
 
 func _on_settings_pressed():
-	get_tree().change_scene_to_file("res://scenes/Settings.tscn")
+	get_tree().change_scene_to_file("res://Scripts/Setting/Test.tscn")
