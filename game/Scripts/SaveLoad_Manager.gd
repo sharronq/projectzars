@@ -6,6 +6,7 @@ var index_file_name = "index_file"
 
 var game_save : Dictionary
 
+
 var delete_files = [
 	"index_file", "game_save_1", "game_save_2", "game_save_3"
 	]
@@ -15,6 +16,7 @@ var delete_files = [
 signal save_successful()
 signal load_successful()
 signal delete_successful()
+signal delete_account_successful()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -78,6 +80,7 @@ func load_index_file_internet():
 func update_index_file(current_game_version : int):
 	var game_version = "game_save_" + str(current_game_version)
 	print("delete", game_version)
+	index_file[game_version]["Name"] = game_save["Name"]
 	index_file[game_version]["Status"] = "active"
 	#index_file[game_version]["Status"] = "sssssss"
 	index_file[game_version]["Level"] = game_save["Level"]
@@ -266,7 +269,6 @@ func Save(current_game_version : int):
 	
 	await update_index_file(current_game_version)
 	save_index_file_internet()
-	
 	save_successful.emit()
 
 
@@ -290,5 +292,6 @@ func deleteAccount():
 		
 		Firebase.Auth.delete_user_account()
 		print("I am deleted")
+		delete_account_successful.emit()
 
 

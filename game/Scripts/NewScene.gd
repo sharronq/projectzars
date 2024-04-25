@@ -7,7 +7,7 @@ var load_save : String
 #index file
 var user_file : Dictionary
 
-@onready var saveload_label = $"../LoadSave/save load text"
+@onready var saveload_label = $saveload_label
 
 # Dictionary keeps track of scene names and their next scene
 # Key: current scene; Value: next scene
@@ -31,6 +31,9 @@ func _ready():
 	user_file = SaveLoadManager.get_index_file()
 	
 	update_label()
+	check_permission()
+	
+	$Slot1.grab_focus()
 
 func initialize_button():
 	if get_scene_name() == "Gamehome" && self.text == "Home":
@@ -45,42 +48,33 @@ func get_scene_name():
 func _process(_delta):
 	pass
 
+
 # Called when load button is pressed, transitions to new scene
 func _on_load_1_pressed():
 	#get_tree().change_scene_to_file("res://scenes/GameHome.tscn")
 	#return
-	print("delete, load")
-	load_save = "load"
+	load_save = "Load"
+	$Pop_up.show()
+	$Pop_up/Yes.grab_focus()
 
 func _on_save_pressed():
-	print("delete, save")
-	load_save = "save"
+	load_save = "Save"
+	$Pop_up.show()
+	$Pop_up/Yes.grab_focus()
 	
 func _on_slot_1_pressed():
-	game_version = 1
+	$Load.grab_focus()
 
 func _on_slot_2_pressed():
-	game_version = 2
-
+	$Load.grab_focus()
 
 func _on_slot_3_pressed():
-	game_version = 3
+	$Load.grab_focus()
 
 
-#central control of actual loading or saving file
-func _on_comfirm_pressed():
-	#If no game slot is being selected, prompt the user to select one
-	if(game_version == -1):
-		print("Print a message")
-		saveload_label.text = "Please select a game slot."
-		return
 
-	if(load_save == "save"):
-		SaveLoadManager.Save(game_version)
-	
-	else:
-		#Load the game from Firebase
-		SaveLoadManager.Load(game_version)
+
+
 
 #Return function by SaveLoadManager.Load()
 #When finish initialize the actual game content from Firebase, direct user to home page
@@ -91,6 +85,7 @@ func load_successed():
 func save_successed():
 	#After save the current game, update the slot information
 	update_label()
+	$Pop_up.hide()
 
 
 func update_label():
@@ -98,3 +93,44 @@ func update_label():
 		var game_save = "Slot" + str(i)
 		get_node(game_save).update_label(i)
 
+
+
+func _on_yes_pressed():
+	#If no game slot is being selected, prompt the user to select one
+	if(game_version == -1):
+		print("Print a message")
+		saveload_label.text = "Please select a game slot."
+		return
+
+	if(load_save == "Save"):
+		await SaveLoadManager.Save(game_version)
+
+	else:
+		#Load the game from Firebase
+		SaveLoadManager.Load(game_version)
+
+
+func _on_no_pressed():
+	$Pop_up.hide()
+	get_node(str(load_save)).grab_focus()
+
+#Check if the current selector is allowed to perform "save" or "load"
+func check_permission():
+	if(SceneSwitcher.caller == "Login"):
+		$Save.set_focus_mode(0)
+		$Save.disabled = true
+	else:
+		$Save.set_focus_mode(2)
+		$Save.disabled = false
+
+
+func _on_slot_1_focus_entered():
+	game_version = 1
+
+
+func _on_slot_2_focus_entered():
+	game_version = 2
+
+
+func _on_slot_3_focus_entered():
+	game_version = 3

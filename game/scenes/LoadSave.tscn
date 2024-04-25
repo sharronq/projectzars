@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="4_j15dw"]
 [ext_resource type="Script" path="res://Scripts/SaveSlotContainer.gd" id="4_ng3jc"]
 [ext_resource type="StyleBox" uid="uid://dix82pa27dcyp" path="res://resources/navbar_hover.tres" id="5_gfip4"]
-[ext_resource type="Theme" uid="uid://df0hnq8k7t4jd" path="res://resources/defaulttext.tres" id="9_vwcyg"]
+[ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://assets/bgs/gallery.png" id="9_0cgs2"]
 
 [node name="LoadSave" type="Node2D"]
 script = ExtResource("1_y14eo")
@@ -18,28 +18,20 @@ position = Vector2(579, 325)
 scale = Vector2(0.803309, 0.803309)
 texture = ExtResource("1_welhg")
 
-[node name="Load1" type="Button" parent="BgR13"]
-offset_left = 333.62
-offset_top = -288.805
-offset_right = 683.62
-offset_bottom = -219.805
-theme_override_fonts/font = ExtResource("3_5yxsy")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = ExtResource("4_273iw")
-theme_override_styles/hover = ExtResource("5_gfip4")
-theme_override_styles/pressed = ExtResource("4_273iw")
-text = "Load"
-
 [node name="Slot1" type="Button" parent="."]
 offset_left = 166.0
 offset_top = 55.0
 offset_right = 846.0
 offset_bottom = 171.0
+pivot_offset = Vector2(616, 210)
+focus_neighbor_top = NodePath("../Slot3")
+focus_neighbor_bottom = NodePath("../Slot2")
 text = "Save slot 1"
 script = ExtResource("4_ng3jc")
 
 [node name="Rank" type="Label" parent="Slot1"]
 visible = false
+layout_mode = 0
 offset_left = 598.0
 offset_top = 4.0
 offset_right = 672.0
@@ -50,6 +42,7 @@ horizontal_alignment = 2
 
 [node name="Last save" type="Label" parent="Slot1"]
 visible = false
+layout_mode = 0
 offset_left = 405.0
 offset_top = 79.0
 offset_right = 676.0
@@ -60,6 +53,7 @@ horizontal_alignment = 2
 
 [node name="Player name" type="Label" parent="Slot1"]
 visible = false
+layout_mode = 0
 theme_override_fonts/font = ExtResource("4_j15dw")
 theme_override_font_sizes/font_size = 30
 
@@ -68,11 +62,14 @@ offset_left = 165.0
 offset_top = 209.0
 offset_right = 845.0
 offset_bottom = 325.0
+focus_neighbor_top = NodePath("../Slot1")
+focus_neighbor_bottom = NodePath("../Slot3")
 text = "Save slot 2"
 script = ExtResource("4_ng3jc")
 
 [node name="Rank" type="Label" parent="Slot2"]
 visible = false
+layout_mode = 0
 offset_left = 598.0
 offset_top = 4.0
 offset_right = 672.0
@@ -83,6 +80,7 @@ horizontal_alignment = 2
 
 [node name="Last save" type="Label" parent="Slot2"]
 visible = false
+layout_mode = 0
 offset_left = 405.0
 offset_top = 79.0
 offset_right = 676.0
@@ -93,6 +91,7 @@ horizontal_alignment = 2
 
 [node name="Player name" type="Label" parent="Slot2"]
 visible = false
+layout_mode = 0
 theme_override_fonts/font = ExtResource("4_j15dw")
 theme_override_font_sizes/font_size = 30
 
@@ -101,11 +100,15 @@ offset_left = 166.0
 offset_top = 361.0
 offset_right = 846.0
 offset_bottom = 477.0
+focus_neighbor_top = NodePath("../Slot2")
+focus_neighbor_bottom = NodePath("../Slot1")
+keep_pressed_outside = true
 text = "Save slot 3"
 script = ExtResource("4_ng3jc")
 
 [node name="Rank" type="Label" parent="Slot3"]
 visible = false
+layout_mode = 0
 offset_left = 598.0
 offset_top = 4.0
 offset_right = 672.0
@@ -116,6 +119,7 @@ horizontal_alignment = 2
 
 [node name="Last save" type="Label" parent="Slot3"]
 visible = false
+layout_mode = 0
 offset_left = 405.0
 offset_top = 79.0
 offset_right = 676.0
@@ -126,6 +130,7 @@ horizontal_alignment = 2
 
 [node name="Player name" type="Label" parent="Slot3"]
 visible = false
+layout_mode = 0
 theme_override_fonts/font = ExtResource("4_j15dw")
 theme_override_font_sizes/font_size = 30
 
@@ -137,11 +142,29 @@ offset_bottom = 456.0
 text = "Back"
 script = ExtResource("2_17lrs")
 
+[node name="Load" type="Button" parent="."]
+offset_left = 844.0
+offset_top = 98.0
+offset_right = 1134.0
+offset_bottom = 153.0
+focus_neighbor_left = NodePath("../Slot1")
+focus_neighbor_top = NodePath("../Save")
+focus_neighbor_bottom = NodePath("../Save")
+theme_override_fonts/font = ExtResource("3_5yxsy")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("4_273iw")
+theme_override_styles/hover = ExtResource("5_gfip4")
+theme_override_styles/pressed = ExtResource("4_273iw")
+text = "Load"
+
 [node name="Save" type="Button" parent="."]
 offset_left = 844.0
 offset_top = 167.0
 offset_right = 1134.0
 offset_bottom = 222.0
+focus_neighbor_left = NodePath("../Slot1")
+focus_neighbor_top = NodePath("../Load")
+focus_neighbor_bottom = NodePath("../Load")
 theme_override_fonts/font = ExtResource("3_5yxsy")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("4_273iw")
@@ -149,30 +172,80 @@ theme_override_styles/hover = ExtResource("5_gfip4")
 theme_override_styles/pressed = ExtResource("4_273iw")
 text = "Save"
 
-[node name="Confirm" type="Button" parent="."]
-offset_left = 845.0
-offset_top = 236.0
-offset_right = 1135.0
-offset_bottom = 291.0
-theme_override_fonts/font = ExtResource("3_5yxsy")
+[node name="saveload_label" type="Label" parent="."]
+offset_left = -7.0
+offset_top = 18.0
+offset_right = 30.0
+offset_bottom = 42.0
+
+[node name="Pop_up" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect2" type="ColorRect" parent="Pop_up"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -4.0
+offset_right = 1167.0
+offset_bottom = 661.0
+color = Color(0.301961, 0.301961, 0.301961, 1)
+
+[node name="frame" type="TextureRect" parent="Pop_up"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 75.0
+offset_right = 967.0
+offset_bottom = 489.0
+texture = ExtResource("9_0cgs2")
+expand_mode = 1
+
+[node name="Announcement" type="Label" parent="Pop_up"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 146.0
+offset_right = 922.0
+offset_bottom = 233.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("4_273iw")
-theme_override_styles/hover = ExtResource("5_gfip4")
-theme_override_styles/pressed = ExtResource("4_273iw")
-text = "Confirm"
+text = "You sure want to 
+continue (modify) this game slot?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="save load text" type="Label" parent="."]
-offset_left = 17.0
-offset_top = 591.0
-offset_right = 357.0
-offset_bottom = 640.0
-theme = ExtResource("9_vwcyg")
-theme_override_fonts/font = ExtResource("4_j15dw")
-theme_override_font_sizes/font_size = 40
+[node name="Yes" type="Button" parent="Pop_up"]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 319.0
+offset_right = 486.0
+offset_bottom = 391.0
+focus_neighbor_left = NodePath("../No")
+focus_neighbor_right = NodePath("../No")
+theme_override_colors/font_color = Color(0, 0.945098, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Yes"
 
-[connection signal="pressed" from="BgR13/Load1" to="." method="_on_load_1_pressed"]
+[node name="No" type="Button" parent="Pop_up"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 315.0
+offset_right = 876.0
+offset_bottom = 387.0
+focus_neighbor_left = NodePath("../Yes")
+focus_neighbor_right = NodePath("../Yes")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "No"
+
+[connection signal="focus_entered" from="Slot1" to="." method="_on_slot_1_focus_entered"]
 [connection signal="pressed" from="Slot1" to="." method="_on_slot_1_pressed"]
+[connection signal="focus_entered" from="Slot2" to="." method="_on_slot_2_focus_entered"]
 [connection signal="pressed" from="Slot2" to="." method="_on_slot_2_pressed"]
+[connection signal="focus_entered" from="Slot3" to="." method="_on_slot_3_focus_entered"]
 [connection signal="pressed" from="Slot3" to="." method="_on_slot_3_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_load_1_pressed"]
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="Confirm" to="." method="_on_comfirm_pressed"]
+[connection signal="pressed" from="Pop_up/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Pop_up/No" to="." method="_on_no_pressed"]

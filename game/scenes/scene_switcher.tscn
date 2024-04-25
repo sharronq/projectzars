@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://biltyyb6odc8b"]
+
+[ext_resource type="Script" path="res://Scripts/SceneSwitcher.gd" id="1_s0kmi"]
+
+[node name="SceneSwitcher" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_s0kmi")

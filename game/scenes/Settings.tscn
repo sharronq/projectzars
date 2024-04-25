@@ -19,12 +19,13 @@ stream = ExtResource("4_0a5ys")
 autoplay = true
 bus = &"Background"
 
-[node name="Label" type="Button" parent="."]
-offset_left = 26.0
-offset_top = 52.0
-offset_right = 260.0
-offset_bottom = 171.0
-theme_override_font_sizes/font_size = 80
-text = "Music"
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 235.0
+offset_top = 274.0
+offset_right = 964.0
+offset_bottom = 375.0
+theme_override_font_sizes/font_size = 40
+text = "sdfd"
 
-[connection signal="pressed" from="Label" to="Screen" method="_on_label_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
