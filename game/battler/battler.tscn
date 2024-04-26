@@ -17,35 +17,36 @@ texture = ExtResource("1_x1x2m")
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Character0" parent="Characters" instance=ExtResource("2_51lph")]
-position = Vector2(96, 342)
+position = Vector2(96, 508)
 
 [node name="Character1" parent="Characters" instance=ExtResource("2_51lph")]
-position = Vector2(192, 150)
+position = Vector2(192, 316)
 
 [node name="Character2" parent="Characters" instance=ExtResource("2_51lph")]
-position = Vector2(288, 342)
+position = Vector2(288, 508)
 
 [node name="Character3" parent="Characters" instance=ExtResource("2_51lph")]
-position = Vector2(384, 150)
+position = Vector2(384, 316)
 
 [node name="Character4" parent="Characters" instance=ExtResource("2_51lph")]
-position = Vector2(768, 150)
+position = Vector2(768, 316)
 
 [node name="Character5" parent="Characters" instance=ExtResource("2_51lph")]
-position = Vector2(864, 342)
+position = Vector2(864, 508)
 
 [node name="Character6" parent="Characters" instance=ExtResource("2_51lph")]
-position = Vector2(960, 150)
+position = Vector2(960, 316)
 
 [node name="Character7" parent="Characters" instance=ExtResource("2_51lph")]
-position = Vector2(1056, 342)
+position = Vector2(1056, 508)
 
 [node name="TurnOrder" type="HBoxContainer" parent="."]
+clip_contents = true
 custom_minimum_size = Vector2(768, 96)
 offset_left = 180.0
-offset_top = 456.0
+offset_top = 48.0
 offset_right = 948.0
-offset_bottom = 552.0
+offset_bottom = 144.0
 
 [connection signal="battle_ended" from="." to="." method="_on_battle_ended"]
 [connection signal="turn_played" from="." to="." method="_on_turn_played"]
