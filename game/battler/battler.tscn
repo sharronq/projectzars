@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbennjl86y8yd"]
+[gd_scene load_steps=6 format=3 uid="uid://cbennjl86y8yd"]
 
 [ext_resource type="Script" path="res://battler/battler.gd" id="1_jnqir"]
 [ext_resource type="Texture2D" uid="uid://deo6nc3k7846y" path="res://assets/bgs/bg_battler.png" id="1_x1x2m"]
 [ext_resource type="PackedScene" uid="uid://d1yaeofo5gmdp" path="res://battler/character.tscn" id="2_51lph"]
+[ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://assets/bgs/gallery.png" id="4_r3mjv"]
+[ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="5_ncfy8"]
 
 [node name="Battler" type="Battler"]
 script = ExtResource("1_jnqir")
@@ -48,5 +50,34 @@ offset_top = 48.0
 offset_right = 948.0
 offset_bottom = 144.0
 
+[node name="Result" type="TextureRect" parent="."]
+visible = false
+offset_left = 336.0
+offset_top = 189.0
+offset_right = 816.0
+offset_bottom = 459.0
+texture = ExtResource("4_r3mjv")
+expand_mode = 1
+
+[node name="ResultLabel" type="Label" parent="Result"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 480.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("5_ncfy8")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Result"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 192.0
+offset_right = 288.0
+offset_bottom = 232.0
+theme_override_fonts/font = ExtResource("5_ncfy8")
+theme_override_font_sizes/font_size = 20
+text = "Close"
+
 [connection signal="battle_ended" from="." to="." method="_on_battle_ended"]
 [connection signal="turn_played" from="." to="." method="_on_turn_played"]
+[connection signal="pressed" from="Result/CloseButton" to="." method="_on_close_button_pressed"]

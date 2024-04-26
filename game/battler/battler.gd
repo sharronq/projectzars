@@ -50,6 +50,11 @@ func _on_turn_played(attacker, victim, damage):
 
 func _on_battle_ended(members_left):
 	if (members_left):
-		print("victory")
+		$Result/ResultLabel.text = "VICTORY"
 	else:
-		print("defeat")
+		$Result/ResultLabel.text = "DEFEAT"
+	$Result.visible = true
+
+
+func _on_close_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/BattleSelect.tscn")
