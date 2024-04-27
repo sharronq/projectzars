@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbennjl86y8yd"]
+[gd_scene load_steps=11 format=3 uid="uid://cbennjl86y8yd"]
 
 [ext_resource type="Script" path="res://battler/battler.gd" id="1_jnqir"]
 [ext_resource type="Texture2D" uid="uid://deo6nc3k7846y" path="res://assets/bgs/bg_battler.png" id="1_x1x2m"]
 [ext_resource type="PackedScene" uid="uid://d1yaeofo5gmdp" path="res://battler/character.tscn" id="2_51lph"]
+[ext_resource type="Texture2D" uid="uid://c00huap4tlawc" path="res://assets/buttons/button.png" id="4_j1edk"]
 [ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://assets/bgs/gallery.png" id="4_r3mjv"]
+[ext_resource type="ButtonGroup" uid="uid://pu4wyk53lxhi" path="res://battler/battle_controls.tres" id="5_1eskg"]
 [ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="5_ncfy8"]
+[ext_resource type="Texture2D" uid="uid://cyjknsgltcaow" path="res://assets/icons/pause.png" id="6_5qwqx"]
+[ext_resource type="Texture2D" uid="uid://w5ii666hx1lr" path="res://assets/icons/play.png" id="7_lr7fu"]
+[ext_resource type="Texture2D" uid="uid://bq51mxfjt4pf2" path="res://assets/icons/fast_forward.png" id="8_wly6g"]
 
 [node name="Battler" type="Battler"]
 script = ExtResource("1_jnqir")
@@ -50,6 +55,44 @@ offset_top = 48.0
 offset_right = 948.0
 offset_bottom = 144.0
 
+[node name="ControlPanel" type="CenterContainer" parent="."]
+offset_left = 320.0
+offset_top = 480.0
+offset_right = 832.0
+offset_bottom = 608.0
+
+[node name="TextureRect" type="TextureRect" parent="ControlPanel"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+texture = ExtResource("4_j1edk")
+expand_mode = 1
+
+[node name="Controls" type="HBoxContainer" parent="ControlPanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Pause" type="TextureButton" parent="ControlPanel/Controls"]
+modulate = Color(0.537255, 0.356863, 0.2, 1)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("5_1eskg")
+texture_normal = ExtResource("6_5qwqx")
+
+[node name="Play" type="TextureButton" parent="ControlPanel/Controls"]
+modulate = Color(0.537255, 0.356863, 0.2, 1)
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("5_1eskg")
+texture_normal = ExtResource("7_lr7fu")
+
+[node name="Fast" type="TextureButton" parent="ControlPanel/Controls"]
+modulate = Color(0.537255, 0.356863, 0.2, 1)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("5_1eskg")
+texture_normal = ExtResource("8_wly6g")
+
 [node name="Result" type="TextureRect" parent="."]
 visible = false
 offset_left = 336.0
@@ -79,5 +122,9 @@ theme_override_font_sizes/font_size = 20
 text = "Close"
 
 [connection signal="battle_ended" from="." to="." method="_on_battle_ended"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="turn_played" from="." to="." method="_on_turn_played"]
+[connection signal="toggled" from="ControlPanel/Controls/Pause" to="." method="_on_pause_toggled"]
+[connection signal="toggled" from="ControlPanel/Controls/Play" to="." method="_on_play_toggled"]
+[connection signal="toggled" from="ControlPanel/Controls/Fast" to="." method="_on_fast_toggled"]
 [connection signal="pressed" from="Result/CloseButton" to="." method="_on_close_button_pressed"]
