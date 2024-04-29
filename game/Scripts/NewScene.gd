@@ -25,13 +25,14 @@ func _ready():
 #Initialize the index file (database)
 	SaveLoadManager.load_successful.connect(load_successed)
 	SaveLoadManager.save_successful.connect(save_successed)
+	SaveLoadManager.delete_successful.connect(delete_successed)
 	
 	game_version = -1
 	load_save = "load"
 	user_file = SaveLoadManager.get_index_file()
 	
 	update_label()
-	check_permission()
+	check_permission_save()
 	
 	$Slot1.grab_focus()
 
@@ -61,7 +62,12 @@ func _on_save_pressed():
 	load_save = "Save"
 	$Pop_up.show()
 	$Pop_up/Yes.grab_focus()
-	
+
+func _on_delete_pressed():
+	load_save = "Delete"
+	$Pop_up.show()
+	$Pop_up/No.grab_focus()
+
 func _on_slot_1_pressed():
 	$Load.grab_focus()
 
@@ -79,6 +85,7 @@ func _on_slot_3_pressed():
 #Return function by SaveLoadManager.Load()
 #When finish initialize the actual game content from Firebase, direct user to home page
 func load_successed():
+	SceneSwitcher.notify("Save", "Home")
 	var path = scene_dict[get_scene_name()]
 	get_tree().change_scene_to_file(path)
 
@@ -86,7 +93,12 @@ func save_successed():
 	#After save the current game, update the slot information
 	update_label()
 	$Pop_up.hide()
+	$Slot1.grab_focus()
 
+func delete_successed():
+	update_label()
+	$Pop_up.hide()
+	$Slot1.grab_focus()
 
 func update_label():
 	for i in range(1, 4):
@@ -105,6 +117,8 @@ func _on_yes_pressed():
 	if(load_save == "Save"):
 		await SaveLoadManager.Save(game_version)
 
+	elif(load_save == "Delete"):
+		SaveLoadManager.delete_index_file(game_version)
 	else:
 		#Load the game from Firebase
 		SaveLoadManager.Load(game_version)
@@ -115,7 +129,7 @@ func _on_no_pressed():
 	get_node(str(load_save)).grab_focus()
 
 #Check if the current selector is allowed to perform "save" or "load"
-func check_permission():
+func check_permission_save():
 	if(SceneSwitcher.caller == "Login"):
 		$Save.set_focus_mode(0)
 		$Save.disabled = true
@@ -123,14 +137,26 @@ func check_permission():
 		$Save.set_focus_mode(2)
 		$Save.disabled = false
 
+func check_permission_delete(selected_version : int):
+	var current_game = "game_save_" + str(selected_version)
+	if(user_file[current_game]["Status"] == "active"):
+		$Delete.set_focus_mode(2)
+		$Delete.disabled = false
+	else:
+		$Delete.set_focus_mode(0)
+		$Delete.disabled = true
 
 func _on_slot_1_focus_entered():
 	game_version = 1
-
+	check_permission_delete(1)
 
 func _on_slot_2_focus_entered():
 	game_version = 2
-
+	check_permission_delete(2)
 
 func _on_slot_3_focus_entered():
 	game_version = 3
+	check_permission_delete(3)
+
+
+

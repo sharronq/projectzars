@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Setting/Settings.gd" id="1_j8ich"]
 [ext_resource type="Script" path="res://Scripts/Setting/Screen.gd" id="2_1ixph"]
 [ext_resource type="Script" path="res://Scripts/Setting/Music.gd" id="3_l2lbk"]
-[ext_resource type="AudioStream" uid="uid://catp3l4sbixq7" path="res://Scripts/Setting/Music Guitar.mp3" id="4_0a5ys"]
+[ext_resource type="AudioStream" uid="uid://cy36h5stn4ofx" path="res://Scripts/Setting/Music/Background Music/Login_Music Guitar.mp3" id="4_0n03f"]
 
 [node name="Settings" type="Node"]
 script = ExtResource("1_j8ich")
@@ -15,7 +15,7 @@ script = ExtResource("2_1ixph")
 script = ExtResource("3_l2lbk")
 
 [node name="Background Music" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("4_0a5ys")
+stream = ExtResource("4_0n03f")
 autoplay = true
 bus = &"Background"
 

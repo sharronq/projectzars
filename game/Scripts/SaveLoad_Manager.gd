@@ -80,10 +80,10 @@ func load_index_file_internet():
 func update_index_file(current_game_version : int):
 	var game_version = "game_save_" + str(current_game_version)
 	print("delete", game_version)
-	index_file[game_version]["Name"] = game_save["Name"]
+	index_file[game_version]["Name"] = get_user_name()
 	index_file[game_version]["Status"] = "active"
 	#index_file[game_version]["Status"] = "sssssss"
-	index_file[game_version]["Level"] = game_save["Level"]
+	index_file[game_version]["Level"] = get_user_fight_level()
 	index_file[game_version]["Time"] = Time.get_datetime_string_from_system(false, true)
 	
 
@@ -91,6 +91,9 @@ func update_index_file(current_game_version : int):
 func delete_index_file(current_game_version : int):
 	var game_version = "game_save_" + str(current_game_version)
 	index_file[game_version]["Status"] = "inactive"
+	save_index_file_internet()
+	delete_successful.emit()
+	
 
 
 func delete_all_index_file():
@@ -110,13 +113,9 @@ func delete_all_index_file():
 
 
 func create_new_game_save():
-	game_save = {
-			"Name" : "Eren",
-			"Age" : "-1",
-			"Level" : "1",
-			"Info" : "Be better"
-	}
-	game_save["char_collection"] = create_characters_file()
+	game_save["Settings"] = create_settings()
+	game_save["Char_collection"] = create_characters_file()
+	game_save["Fight"] = create_fight_initials()
 
 
 func create_characters_file() -> Dictionary:
@@ -129,6 +128,72 @@ func create_characters_file() -> Dictionary:
 		"warrior_yellow" = "lock"
 	}
 	return char_file
+
+
+func create_settings():
+	var settings_file : Dictionary = {
+		"Screen" = create_settings_screen(),
+		"Music" = create_settings_music(),
+		"Account" =  create_settings_account()
+	}
+	
+	return settings_file
+
+
+func create_fight_initials():
+	var fight_file : Dictionary = {
+		"Level" = 0,
+		"Team" = create_fight_team()
+	}
+	
+	return fight_file
+
+func create_fight_team():
+	var fight_team_file : Dictionary = {
+		"c1" = "archer",
+		"c2" = "archer",
+		"c3" = "archer",
+		"c4" = "archer"
+	}
+
+func create_settings_screen():
+	var settings_screen_file : Dictionary = {
+		"Resolution" = 0
+	}
+	return settings_screen_file
+
+func create_settings_music():
+	var settings_music_file : Dictionary = {
+		"Volumn_db" = 60
+	}
+	return settings_music_file
+
+func create_settings_account():
+	var settings_account_file : Dictionary = {
+		"Name" = "Eren"
+	}
+	return settings_account_file
+
+
+
+func get_user_name() -> String:
+	return get_user_settings()["Account"]["Name"]
+
+func get_user_settings() -> Dictionary:
+	return game_save["Settings"]
+
+func get_user_fight_team() -> Dictionary:
+	return game_save["Fight"]["Team"]
+
+func get_user_fight_level() -> int:
+	return game_save["Fight"]["Level"]
+
+func get_user_char_collection() -> Dictionary:
+	return game_save["Char_collection"]
+
+
+func set_user_name(new_name : String):
+	game_save["Settings"]["Account"]["Name"] = new_name
 #***************** Save actual game section ******************
 #Start a new game
 func save_game_save_internet(current_game_version : int):
@@ -137,7 +202,6 @@ func save_game_save_internet(current_game_version : int):
 	if auth.localid:
 		var game_version = "game_save_" + str(current_game_version)
 		var collection: FirestoreCollection = Firebase.Firestore.collection(auth.localid)
-		print(game_save)
 		var task: FirestoreTask = collection.update(game_version, game_save)
 		delete_currentFight()
 
@@ -224,7 +288,7 @@ func create_new_user(auth):
 	var default_stat = {
 		"Status" : "inactive",
 		"Name" : "Eren",
-		"Level" : "-1",
+		"Level" : "1",
 		"Time" : "-1"
 	}
 	#Store 3 default files
