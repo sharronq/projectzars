@@ -52,6 +52,7 @@ offset_left = 91.0
 offset_top = 161.0
 offset_right = 415.0
 offset_bottom = 206.0
+size_flags_vertical = 2
 
 [node name="Start" type="Button" parent="."]
 offset_left = 182.0

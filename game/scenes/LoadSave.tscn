@@ -214,19 +214,19 @@ color = Color(0.301961, 0.301961, 0.301961, 1)
 
 [node name="frame" type="TextureRect" parent="Pop_up"]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 62.0
-offset_right = 967.0
-offset_bottom = 489.0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 647.0
 texture = ExtResource("9_0cgs2")
 expand_mode = 1
 
 [node name="Announcement" type="Label" parent="Pop_up"]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 146.0
-offset_right = 922.0
-offset_bottom = 233.0
+offset_left = 237.0
+offset_top = 181.0
+offset_right = 911.0
+offset_bottom = 268.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "You sure want to 
@@ -236,10 +236,10 @@ vertical_alignment = 1
 
 [node name="Yes" type="Button" parent="Pop_up"]
 layout_mode = 0
-offset_left = 270.0
-offset_top = 319.0
-offset_right = 486.0
-offset_bottom = 391.0
+offset_left = 259.0
+offset_top = 354.0
+offset_right = 475.0
+offset_bottom = 426.0
 focus_neighbor_left = NodePath("../No")
 focus_neighbor_right = NodePath("../No")
 theme_override_colors/font_color = Color(0, 0.945098, 0, 1)
@@ -248,10 +248,10 @@ text = "Yes"
 
 [node name="No" type="Button" parent="Pop_up"]
 layout_mode = 0
-offset_left = 660.0
-offset_top = 315.0
-offset_right = 876.0
-offset_bottom = 387.0
+offset_left = 649.0
+offset_top = 350.0
+offset_right = 865.0
+offset_bottom = 422.0
 focus_neighbor_left = NodePath("../Yes")
 focus_neighbor_right = NodePath("../Yes")
 theme_override_colors/font_color = Color(1, 0, 0, 1)

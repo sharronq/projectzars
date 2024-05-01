@@ -6,12 +6,29 @@ var index_file_name = "index_file"
 
 var game_save : Dictionary
 
+var selected_fight_level : int = 0
 
 var delete_files = [
 	"index_file", "game_save_1", "game_save_2", "game_save_3"
 	]
 
+var fight_characters_address : Dictionary = {
+	"archer" = "res://characters/archer_blue.tres",
+	"pawn_blue" = "res://characters/pawn_blue.tres",
+	"pawn_red" = "res://characters/pawn_red.tres",
+	"torch_red" = "res://characters/torch_red.tres",
+	"warrior_blue" = "res://characters/warrior_blue.tres",
+	"warrior_yellow" = "res://characters/warrior_yellow.tres"
+}
 
+var fight_enemies_in_each_level : Dictionary = {
+	"0" : {
+		"c0" : "pawn_red",
+		"c1" : "torch_red",
+		"c2" : "pawn_blue",
+		"c3" : "torch_red"
+	}
+}
 
 signal save_successful()
 signal load_successful()
@@ -120,17 +137,17 @@ func create_new_game_save():
 
 func create_characters_file() -> Dictionary:
 	var char_file : Dictionary = {
-		"archer" = "lock",
-		"pawn_blue" = "lock",
+		"archer" = "unlock",
+		"pawn_blue" = "unlock",
 		"pawn_red" = "lock",
 		"torch_red" = "lock",
-		"warrior_blue" = "lock",
-		"warrior_yellow" = "lock"
+		"warrior_blue" = "unlock",
+		"warrior_yellow" = "unlock"
 	}
 	return char_file
 
 
-func create_settings():
+func create_settings() -> Dictionary:
 	var settings_file : Dictionary = {
 		"Screen" = create_settings_screen(),
 		"Music" = create_settings_music(),
@@ -140,35 +157,36 @@ func create_settings():
 	return settings_file
 
 
-func create_fight_initials():
+func create_fight_initials() -> Dictionary:
 	var fight_file : Dictionary = {
 		"Level" = 0,
-		"Team" = create_fight_team()
+		"Team" = create_initial_fight_team()
 	}
 	
 	return fight_file
 
-func create_fight_team():
+func create_initial_fight_team() -> Dictionary:
 	var fight_team_file : Dictionary = {
-		"c1" = "archer",
-		"c2" = "archer",
-		"c3" = "archer",
-		"c4" = "archer"
+		"c0" = "warrior_yellow",
+		"c1" = "warrior_blue",
+		"c2" = "pawn_blue",
+		"c3" = "archer"
 	}
+	return fight_team_file
 
-func create_settings_screen():
+func create_settings_screen() -> Dictionary:
 	var settings_screen_file : Dictionary = {
 		"Resolution" = 0
 	}
 	return settings_screen_file
 
-func create_settings_music():
+func create_settings_music() -> Dictionary:
 	var settings_music_file : Dictionary = {
 		"Volumn_db" = 60
 	}
 	return settings_music_file
 
-func create_settings_account():
+func create_settings_account() -> Dictionary:
 	var settings_account_file : Dictionary = {
 		"Name" = "Eren"
 	}
@@ -247,6 +265,25 @@ func resume_currentFight():
 		print("The load_index_file_locally failed")
 
 
+func create_fight(zars : Array):
+	var level = selected_fight_level
+	#Load my team in a fight
+	var zars_number = 0
+	var team : Dictionary = get_user_fight_team()
+	for i in range (8):
+		var char_index : String = "c" + str(zars_number)
+		var char_name : String = team[char_index]
+		var current_address : String = fight_characters_address[char_name]
+		zars[i] = load(current_address).duplicate()
+		
+		zars_number += 1
+		if(zars_number == 4):
+			team = fight_enemies_in_each_level[str(level)]
+			zars_number = 0
+		
+
+func get_selected_fight_level() -> int:
+	return selected_fight_level
 #***************** Delete actual game section ******************
 func delete_game_save_internet(current_game_version : int):
 	var game_version = "game_save_" + str(current_game_version)
