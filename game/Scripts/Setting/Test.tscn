@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://roiyvwuuynbb"]
+[gd_scene load_steps=6 format=3 uid="uid://roiyvwuuynbb"]
 
 [ext_resource type="Script" path="res://Scripts/Setting/Test.gd" id="1_7ehgs"]
 [ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://assets/bgs/gallery.png" id="2_ylpmq"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4smr5"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_q5ah7"]
+action = &"Quit"
+
+[sub_resource type="Shortcut" id="Shortcut_2o64q"]
+events = [SubResource("InputEventAction_q5ah7")]
 
 [node name="Canvas" type="Control"]
 layout_mode = 3
@@ -239,7 +245,8 @@ offset_bottom = -87.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
-text = "Back"
+shortcut = SubResource("Shortcut_2o64q")
+text = "Back (Q)"
 
 [connection signal="focus_entered" from="frame/VBoxContainer/HBoxContainer/Screen_button" to="." method="_on_screen_button_focus_entered"]
 [connection signal="focus_entered" from="frame/VBoxContainer/HBoxContainer/Music_button" to="." method="_on_music_button_focus_entered"]
