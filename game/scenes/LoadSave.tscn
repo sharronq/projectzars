@@ -154,11 +154,6 @@ theme_override_styles/pressed = ExtResource("4_273iw")
 shortcut = SubResource("Shortcut_ya7e2")
 text = "Back (Q)"
 script = ExtResource("2_17lrs")
-theme_override_styles/normal = ExtResource("4_273iw")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = ExtResource("5_gfip4")
-theme_override_styles/pressed = ExtResource("4_273iw")
-theme_override_fonts/font = ExtResource("3_5yxsy")
 
 [node name="Load" type="Button" parent="."]
 offset_left = 844.0

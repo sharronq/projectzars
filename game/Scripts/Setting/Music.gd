@@ -4,10 +4,9 @@ extends Node
 
 func _ready():
 	SceneSwitcher.scene_changed.connect(scene_changed)
-
 	
 func change_volumn(bus_name : String, value : int):
-
+	SaveLoadManager.set_user_background_db(value)
 	var bus_index = AudioServer.get_bus_index(bus_name)
 	AudioServer.set_bus_volume_db(
 		bus_index,

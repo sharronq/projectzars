@@ -33,9 +33,10 @@ func initialize_resolution():
 	
 	
 func change_screen_size(choice : int):
+	SaveLoadManager.set_user_resolution(choice)
 	var expect_size = resolutions[choice]
 	var viewport = get_viewport()
-
+	
 
 	#change the viewport size
 	viewport.set_size(expect_size)

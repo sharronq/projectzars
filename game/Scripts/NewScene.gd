@@ -86,6 +86,7 @@ func _on_slot_3_pressed():
 #When finish initialize the actual game content from Firebase, direct user to home page
 func load_successed():
 	SceneSwitcher.notify("Save", "Home")
+	Settings.load_user_data()
 	var path = scene_dict[get_scene_name()]
 	get_tree().change_scene_to_file(path)
 

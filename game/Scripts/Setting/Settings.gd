@@ -18,3 +18,7 @@ func _process(delta):
 
 func _on_button_pressed():
 	$Button.disabled = true
+
+func load_user_data():
+	Music.change_volumn("Background", SaveLoadManager.get_user_background_db())
+	Screen.change_screen_size(SaveLoadManager.get_user_resolution())

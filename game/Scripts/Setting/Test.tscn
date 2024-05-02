@@ -200,7 +200,7 @@ offset_right = 868.0
 offset_bottom = -53.5
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = " If you want to delete your account, type in your email: address: ("
+text = " If you want to delete your account, type in your email address: ("
 autowrap_mode = 1
 
 [node name="Delete_line" type="LineEdit" parent="frame/VBoxContainer/Settings_container/Account_ontainer/DeleteAccount/Delete_warning"]

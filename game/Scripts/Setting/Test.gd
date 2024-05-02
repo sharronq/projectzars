@@ -21,7 +21,8 @@ func _ready():
 	SaveLoadManager.delete_account_successful.connect(delete_account_successful)
 	
 	Screen_button.grab_focus()
-
+	
+	volume_slider.value = SaveLoadManager.get_user_background_db()
 	volumn_label.text = str(volume_slider.value) + "%"
 	Username.text = SaveLoadManager.get_user_name()
 	Delete_label.text = Delete_label.text + Firebase.Auth.auth["email"] + ") in the following box"

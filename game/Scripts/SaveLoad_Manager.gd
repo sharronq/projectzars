@@ -23,6 +23,24 @@ var fight_characters_address : Dictionary = {
 
 var fight_enemies_in_each_level : Dictionary = {
 	"0" : {
+		"c0" : "archer",
+		"c1" : "archer",
+		"c2" : "",
+		"c3" : ""
+	},
+	"1" : {
+		"c0" : "archer",
+		"c1" : "archer",
+		"c2" : "pawn_blue",
+		"c3" : ""
+	},
+	"2" : {
+		"c0" : "archer",
+		"c1" : "pawn_blue",
+		"c2" : "pawn_blue",
+		"c3" : ""
+	},
+	"3" : {
 		"c0" : "pawn_red",
 		"c1" : "torch_red",
 		"c2" : "pawn_blue",
@@ -176,7 +194,7 @@ func create_initial_fight_team() -> Dictionary:
 
 func create_settings_screen() -> Dictionary:
 	var settings_screen_file : Dictionary = {
-		"Resolution" = 0
+		"Resolution" = 2
 	}
 	return settings_screen_file
 
@@ -209,9 +227,26 @@ func get_user_fight_level() -> int:
 func get_user_char_collection() -> Dictionary:
 	return game_save["Char_collection"]
 
+func get_selected_fight_level() -> int:
+	return selected_fight_level
+
+func get_user_resolution() -> int :
+	return game_save["Settings"]["Screen"]["Resolution"]
+
+func get_user_background_db() -> int:
+	return game_save["Settings"]["Music"]["Volumn_db"]
+
+func increase_user_fight_level():
+	game_save["Fight"]["Level"] += 1
 
 func set_user_name(new_name : String):
 	game_save["Settings"]["Account"]["Name"] = new_name
+
+func set_user_resolution(new_resolution_value : int):
+	game_save["Settings"]["Screen"]["Resolution"] = new_resolution_value
+
+func set_user_background_db(new_db : int):
+	game_save["Settings"]["Music"]["Volumn_db"] = new_db
 #***************** Save actual game section ******************
 #Start a new game
 func save_game_save_internet(current_game_version : int):
@@ -273,6 +308,8 @@ func create_fight(zars : Array):
 	for i in range (8):
 		var char_index : String = "c" + str(zars_number)
 		var char_name : String = team[char_index]
+		if(char_name == ""):
+			continue
 		var current_address : String = fight_characters_address[char_name]
 		zars[i] = load(current_address).duplicate()
 		
@@ -282,8 +319,6 @@ func create_fight(zars : Array):
 			zars_number = 0
 		
 
-func get_selected_fight_level() -> int:
-	return selected_fight_level
 #***************** Delete actual game section ******************
 func delete_game_save_internet(current_game_version : int):
 	var game_version = "game_save_" + str(current_game_version)
