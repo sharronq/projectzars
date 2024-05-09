@@ -3,19 +3,35 @@ extends Node2D
 const SlotClass = preload("res://Scripts/slot.gd")
 @onready var card_slots = $VBoxContainer/Inventory
 @onready var party_slots = $VBoxContainer/Party
+@onready var stats_panel = $StatsPanel
+
+signal s
 
 var inventory = []
 var holding_char = null
+var has_duplicate = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for slots in party_slots.get_children():
 		#inventory.append(slots)
 		slots.gui_input.connect(slot_gui_input.bind(slots))
+		slots.selection.connect(show_info.bind(slots))
+		slots.deselection.connect(hide_info)
 	for slots in card_slots.get_children():
 		inventory.append(slots)
 		slots.gui_input.connect(card_gui_input.bind(slots))
+		slots.selection.connect(show_info.bind(slots))
+		slots.deselection.connect(hide_info)
 
+func show_info(slot: SlotClass):
+	if (slot.card):
+		$StatsPanel/Label.text = "Name: " + slot.card.name
+		stats_panel.show()
+	
+func hide_info():
+	stats_panel.hide()
 
 func slot_gui_input(event: InputEvent, slot: SlotClass):
 	if event is InputEventMouseButton:
@@ -28,14 +44,25 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 func card_gui_input(event: InputEvent, slot: SlotClass):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			has_duplicate = false
 			print(slot.card.name)
+			for s in party_slots.get_children():
+				if (s.card == slot.card):
+					has_duplicate = true
+					print("b")
 			for slots in party_slots.get_children():
-				if (!slots.card):
+				if (!slots.card and !has_duplicate):
 					#Add card to party
 					slots.card = slot.card
 					slots.empty = false
 					slots.refresh()
 					break
+				elif (has_duplicate):
+					print("This member already is in the party!")
+					break
+
+func card_selection(slot: SlotClass):
+	print("s")
 
 
 func _input(event):
@@ -61,3 +88,4 @@ func _input(event):
 				#holding_card = slot.item
 				#slot.pickFromSlot()
 				#holding_card.global_position = get_global_mouse_position()
+

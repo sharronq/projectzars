@@ -2,6 +2,10 @@ extends PanelContainer
 
 @export var card: CharCard
 @export var party = false
+@onready var b = get_node('CharacterCollection')
+
+signal selection
+signal deselection
 
 var empty = true
 
@@ -15,9 +19,11 @@ func _ready():
 
 func select():
 	$Selected.show()
+	selection.emit()
 	
 func unselect():
 	$Selected.hide()
+	deselection.emit()
 	
 func h():
 	#$Icon.hide()
@@ -41,3 +47,4 @@ func _gui_input(event):
 func pickFromSlot():
 	var inventoryNode = find_parent("CharacterCollection")
 	inventoryNode.add_child($Icon)
+
