@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://catp3l4sbixq7"
+path="res://.godot/imported/Music Guitar.mp3-269294c37b0e425a1f25ca857cf64388.mp3str"
+
+[deps]
+
+source_file="res://Scripts/Setting/Music Guitar.mp3"
+dest_files=["res://.godot/imported/Music Guitar.mp3-269294c37b0e425a1f25ca857cf64388.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

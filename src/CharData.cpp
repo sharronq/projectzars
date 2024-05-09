@@ -24,6 +24,8 @@ void CharData::_bind_methods() {
   ClassDB::bind_method(D_METHOD("setAnimation", "anim"), &CharData::setAnimation);
   ClassDB::add_property("CharData", PropertyInfo(Variant::OBJECT, "sprite_frames", PROPERTY_HINT_RESOURCE_TYPE, "SpriteFrames"), "setAnimation", "getAnimation");
 
+  ClassDB::bind_method(D_METHOD("getCurrentHealth"), &CharData::getCurrentHealth);
+  ClassDB::bind_method(D_METHOD("setCurrentHealth", "new_current"), &CharData::setCurrentHealth);
   ClassDB::bind_method(D_METHOD("printCharacter"), &CharData::printCharacter);
 }
 
@@ -72,7 +74,14 @@ void CharData::setAnimation(const Ref<SpriteFrames> anim) {
   animation_ = anim;
 }
 
+int CharData::getCurrentHealth() const {
+  return current_health;
+}
+void CharData::setCurrentHealth(const int new_current) {
+  current_health = new_current;
+}
+
 // print method for debug purposes
 void CharData::printCharacter() {
-  UtilityFunctions::print(name_ + ":\tatk:" + String::num_int64(attack_) + "\thp:" + String::num_int64(health_) + "\tspd:" + String::num_int64(speed_));
+  UtilityFunctions::print(name_ + ":\tatk:" + String::num_int64(attack_) + "\thp:" + String::num_int64(current_health) + "\tspd:" + String::num_int64(speed_));
 }

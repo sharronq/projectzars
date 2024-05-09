@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://bduba30qennea"]
+[gd_scene load_steps=5 format=3 uid="uid://bduba30qennea"]
 
-[node name="Settings" type="Node2D"]
+[ext_resource type="Script" path="res://Scripts/Setting/Settings.gd" id="1_j8ich"]
+[ext_resource type="Script" path="res://Scripts/Setting/Screen.gd" id="2_1ixph"]
+[ext_resource type="Script" path="res://Scripts/Setting/Music.gd" id="3_l2lbk"]
+[ext_resource type="AudioStream" uid="uid://cy36h5stn4ofx" path="res://Scripts/Setting/Music/Background Music/Login_Music Guitar.mp3" id="4_0n03f"]
+
+[node name="Settings" type="Node"]
+script = ExtResource("1_j8ich")
+
+[node name="Screen" type="Node" parent="."]
+script = ExtResource("2_1ixph")
+
+[node name="Music" type="Node" parent="."]
+script = ExtResource("3_l2lbk")
+
+[node name="Background Music" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("4_0n03f")
+autoplay = true
+bus = &"Background"
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 235.0
+offset_top = 274.0
+offset_right = 964.0
+offset_bottom = 375.0
+theme_override_font_sizes/font_size = 40
+text = "sdfd"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

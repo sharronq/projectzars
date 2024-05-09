@@ -1,0 +1,263 @@
+[gd_scene load_steps=6 format=3 uid="uid://roiyvwuuynbb"]
+
+[ext_resource type="Script" path="res://Scripts/Setting/Test.gd" id="1_7ehgs"]
+[ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://assets/bgs/gallery.png" id="2_ylpmq"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4smr5"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_q5ah7"]
+action = &"Quit"
+
+[sub_resource type="Shortcut" id="Shortcut_2o64q"]
+events = [SubResource("InputEventAction_q5ah7")]
+
+[node name="Canvas" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7ehgs")
+
+[node name="frame" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 647.0
+texture = ExtResource("2_ylpmq")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="frame"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 50.0
+offset_right = 67.5
+offset_bottom = 105.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Setting"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="frame"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.314
+offset_left = 107.0
+offset_top = 130.0
+offset_right = -84.0
+offset_bottom = 222.842
+
+[node name="HBoxContainer" type="HBoxContainer" parent="frame/VBoxContainer"]
+layout_mode = 2
+
+[node name="Screen_button" type="Button" parent="frame/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Account_button")
+focus_neighbor_right = NodePath("../Music_button")
+focus_neighbor_bottom = NodePath("../../Settings_container/Screen_setting/Resolution_Option")
+theme_override_font_sizes/font_size = 40
+text = "Screen"
+
+[node name="Music_button" type="Button" parent="frame/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Screen_button")
+focus_neighbor_right = NodePath("../Account_button")
+focus_neighbor_bottom = NodePath("../../Settings_container/Music_container/Background_Slider/CheckBox")
+theme_override_font_sizes/font_size = 40
+text = "Music"
+
+[node name="Account_button" type="Button" parent="frame/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Music_button")
+focus_neighbor_right = NodePath("../Screen_button")
+focus_neighbor_bottom = NodePath("../../Settings_container/Account_ontainer/Username")
+theme_override_font_sizes/font_size = 40
+text = "Account"
+
+[node name="Settings_container" type="VBoxContainer" parent="frame/VBoxContainer"]
+layout_mode = 2
+
+[node name="Screen_setting" type="GridContainer" parent="frame/VBoxContainer/Settings_container"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="frame/VBoxContainer/Settings_container/Screen_setting"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Resolution Options"
+
+[node name="Resolution_Option" type="OptionButton" parent="frame/VBoxContainer/Settings_container/Screen_setting"]
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_top = NodePath("../../../HBoxContainer/Screen_button")
+theme_override_font_sizes/font_size = 40
+item_count = 5
+selected = 0
+popup/item_0/text = "Mini"
+popup/item_0/icon = SubResource("ViewportTexture_4smr5")
+popup/item_0/id = 0
+popup/item_1/text = "Small"
+popup/item_1/id = 1
+popup/item_2/text = "Medium"
+popup/item_2/id = 2
+popup/item_3/text = "Large"
+popup/item_3/id = 3
+popup/item_4/text = "Full"
+popup/item_4/id = 4
+
+[node name="Music_container" type="GridContainer" parent="frame/VBoxContainer/Settings_container"]
+visible = false
+layout_mode = 2
+columns = 3
+
+[node name="Label" type="Label" parent="frame/VBoxContainer/Settings_container/Music_container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Background Volumn                    
+"
+
+[node name="Background_Slider" type="HSlider" parent="frame/VBoxContainer/Settings_container/Music_container"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 0.0
+step = 2.0
+value = 60.0
+
+[node name="CheckBox" type="CheckBox" parent="frame/VBoxContainer/Settings_container/Music_container/Background_Slider"]
+layout_mode = 0
+offset_left = -80.0
+offset_right = -56.0
+offset_bottom = 24.0
+scale = Vector2(2, 2)
+focus_neighbor_top = NodePath("../../../../HBoxContainer/Music_button")
+button_pressed = true
+
+[node name="BVolumn_percentage" type="Label" parent="frame/VBoxContainer/Settings_container/Music_container"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Account_ontainer" type="GridContainer" parent="frame/VBoxContainer/Settings_container"]
+visible = false
+layout_mode = 2
+
+[node name="Username" type="LineEdit" parent="frame/VBoxContainer/Settings_container/Account_ontainer"]
+custom_minimum_size = Vector2(400, 2.08165e-12)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../../HBoxContainer/Account_button")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "UserName"
+
+[node name="Label" type="Label" parent="frame/VBoxContainer/Settings_container/Account_ontainer/Username"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 170.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+
+[node name="DeleteAccount" type="Button" parent="frame/VBoxContainer/Settings_container/Account_ontainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 30
+text = "DeleteAccount"
+
+[node name="Delete_warning" type="TextureRect" parent="frame/VBoxContainer/Settings_container/Account_ontainer/DeleteAccount"]
+visible = false
+layout_mode = 2
+offset_left = -152.0
+offset_top = -104.0
+offset_right = 773.0
+offset_bottom = 239.0
+texture = ExtResource("2_ylpmq")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="frame/VBoxContainer/Settings_container/Account_ontainer/DeleteAccount/Delete_warning"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 59.0
+offset_top = -140.5
+offset_right = 868.0
+offset_bottom = -53.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = " If you want to delete your account, type in your email address: ("
+autowrap_mode = 1
+
+[node name="Delete_line" type="LineEdit" parent="frame/VBoxContainer/Settings_container/Account_ontainer/DeleteAccount/Delete_warning"]
+layout_mode = 2
+offset_left = 61.0
+offset_top = 190.0
+offset_right = 475.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 25
+placeholder_text = "abc.gmail"
+
+[node name="Delete_button" type="Button" parent="frame/VBoxContainer/Settings_container/Account_ontainer/DeleteAccount/Delete_warning"]
+layout_mode = 0
+offset_left = 662.0
+offset_top = 197.0
+offset_right = 769.0
+offset_bottom = 235.0
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "Delete"
+
+[node name="Back" type="Button" parent="frame/VBoxContainer/Settings_container/Account_ontainer/DeleteAccount/Delete_warning"]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 190.0
+offset_right = 610.0
+offset_bottom = 248.0
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="Back" type="Button" parent="frame"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.5
+offset_top = -147.0
+offset_right = 90.5
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_2o64q")
+text = "Back (Q)"
+
+[connection signal="focus_entered" from="frame/VBoxContainer/HBoxContainer/Screen_button" to="." method="_on_screen_button_focus_entered"]
+[connection signal="focus_entered" from="frame/VBoxContainer/HBoxContainer/Music_button" to="." method="_on_music_button_focus_entered"]
+[connection signal="focus_entered" from="frame/VBoxContainer/HBoxContainer/Account_button" to="." method="_on_account_button_focus_entered"]
+[connection signal="item_selected" from="frame/VBoxContainer/Settings_container/Screen_setting/Resolution_Option" to="." method="_on_resolution_option_item_selected"]
+[connection signal="value_changed" from="frame/VBoxContainer/Settings_container/Music_container/Background_Slider" to="." method="_on_background_slider_value_changed"]
+[connection signal="toggled" from="frame/VBoxContainer/Settings_container/Music_container/Background_Slider/CheckBox" to="." method="_on_music_backgroun_check_box_toggled"]
+[connection signal="text_changed" from="frame/VBoxContainer/Settings_container/Account_ontainer/Username" to="." method="_on_username_text_changed"]
+[connection signal="text_submitted" from="frame/VBoxContainer/Settings_container/Account_ontainer/Username" to="." method="_on_username_text_submitted"]
+[connection signal="pressed" from="frame/VBoxContainer/Settings_container/Account_ontainer/DeleteAccount" to="." method="_on_delete_account_pressed"]
+[connection signal="text_changed" from="frame/VBoxContainer/Settings_container/Account_ontainer/DeleteAccount/Delete_warning/Delete_line" to="." method="_on_delete_line_text_changed"]
+[connection signal="pressed" from="frame/VBoxContainer/Settings_container/Account_ontainer/DeleteAccount/Delete_warning/Delete_button" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="frame/VBoxContainer/Settings_container/Account_ontainer/DeleteAccount/Delete_warning/Back" to="." method="_on_delete_back_pressed"]
+[connection signal="pressed" from="frame/Back" to="." method="_on_back_pressed"]

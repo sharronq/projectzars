@@ -18,8 +18,8 @@ sources = Glob("./*.cpp")
 
 if env["platform"] == "macos":
     library = env.SharedLibrary(
-        "../game/bin/zars.{}.{}.framework/zars.{}.{}".format(
-            env["platform"], env["target"], env["platform"], env["target"]
+        "../game/bin/zars.{}.{}.framework".format(
+            env["platform"], env["target"]
         ),
         source=sources,
     )

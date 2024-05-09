@@ -15,6 +15,16 @@ func _ready():
 	
 	await load_auth_succeeded()
 
+func _process(delta):
+	if Input.is_action_just_pressed("Comfirm"):
+		if $".".has_focus():
+			$"../Password".grab_focus()
+		elif $"../Password".has_focus():
+			$"../Login".grab_focus()
+			$"../Login".emit_signal("pressed")
+
+
+
 func _on_login_pressed():
 	var email = text
 	var password = $"../Password".text
@@ -39,29 +49,30 @@ func _on_register_pressed():
 	
 	Firebase.Auth.signup_with_email_and_password(email, password)
 
+
+
 #Sign up success
 #1) Prompt the user a message
 #2) Move to LoadSave scene
 func on_login_succeeded(auth):
+	Firebase.Auth.save_auth(auth)
 	$"../Label".text = "Login successful!"
 	$"../Label".show()
-	Firebase.Auth.save_auth(auth)
 	await SaveLoadManager.new()
 	
 	await get_tree().create_timer(1).timeout
+	SceneSwitcher.notify("Login", "LoadSave")
 	get_tree().change_scene_to_file("res://scenes/LoadSave.tscn")
 
 #Sign up success
 #1) Prompt the user a message
 #2) Save username to file
 func on_signup_succeeded(auth):
+	Firebase.Auth.save_auth(auth)
+	SaveLoadManager.create_new_user(auth)
+	
 	$"../Label".text = "Registration successful!"
 	$"../Label".show()
-	Firebase.Auth.save_auth(auth)
-	
-	await get_tree().create_timer(1).timeout
-	get_tree().change_scene_to_file("res://scenes/LoadSave.tscn")
-	SaveLoadManager.create_new_user(auth)
 
 #Login in failure
 #Prompt the user a message

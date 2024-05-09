@@ -8,8 +8,7 @@ var scene_dict = {
 }
 
 func button_pressed():
-	var path = get_scene_path()
-	get_tree().change_scene_to_file(path)
+	SceneSwitcher.back()
 
 func get_scene_path():
 	var scene = get_tree().get_current_scene().name

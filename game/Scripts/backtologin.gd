@@ -11,4 +11,5 @@ func _process(_delta):
 	pass
 
 func button_pressed():
+	SceneSwitcher.notify("Home", "Login")
 	get_tree().change_scene_to_file("res://Scenes/login.tscn")
