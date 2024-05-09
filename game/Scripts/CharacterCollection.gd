@@ -5,8 +5,6 @@ const SlotClass = preload("res://Scripts/slot.gd")
 @onready var party_slots = $VBoxContainer/Party
 @onready var stats_panel = $StatsPanel
 
-signal s
-
 var inventory = []
 var holding_char = null
 var has_duplicate = false
@@ -47,9 +45,9 @@ func card_gui_input(event: InputEvent, slot: SlotClass):
 			has_duplicate = false
 			print(slot.card.name)
 			for s in party_slots.get_children():
+				# Check for dupes
 				if (s.card == slot.card):
 					has_duplicate = true
-					print("b")
 			for slots in party_slots.get_children():
 				if (!slots.card and !has_duplicate):
 					#Add card to party
