@@ -24,6 +24,10 @@ void CharData::_bind_methods() {
   ClassDB::bind_method(D_METHOD("setAnimation", "anim"), &CharData::setAnimation);
   ClassDB::add_property("CharData", PropertyInfo(Variant::OBJECT, "sprite_frames", PROPERTY_HINT_RESOURCE_TYPE, "SpriteFrames"), "setAnimation", "getAnimation");
 
+  ClassDB::bind_method(D_METHOD("getCharSprite"), &CharData::getCharSprite);
+  ClassDB::bind_method(D_METHOD("setCharSprite", "i_sprite"), &CharData::setCharSprite);
+  ClassDB::add_property("CharData", PropertyInfo(Variant::OBJECT, "char_sprite", PROPERTY_HINT_RESOURCE_TYPE, "Texture2D"), "setCharSprite", "getCharSprite");
+
   ClassDB::bind_method(D_METHOD("getCurrentHealth"), &CharData::getCurrentHealth);
   ClassDB::bind_method(D_METHOD("setCurrentHealth", "new_current"), &CharData::setCurrentHealth);
   ClassDB::bind_method(D_METHOD("printCharacter"), &CharData::printCharacter);
@@ -72,6 +76,13 @@ Ref<SpriteFrames> CharData::getAnimation() const {
 }
 void CharData::setAnimation(const Ref<SpriteFrames> anim) {
   animation_ = anim;
+}
+
+Ref<Texture2D> CharData::getCharSprite() const {
+  return char_sprite_;
+}
+void CharData::setCharSprite(const Ref<Texture2D> i_sprite) {
+  char_sprite_ = i_sprite;
 }
 
 int CharData::getCurrentHealth() const {

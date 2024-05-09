@@ -4,6 +4,7 @@
 #include <godot_cpp/classes/resource.hpp>
 #include <godot_cpp/classes/sprite_frames.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
+#include <godot_cpp/classes/texture2d.hpp>
 
 namespace godot {
 
@@ -16,6 +17,7 @@ private:
   int health_;
   int speed_;
   Ref<SpriteFrames> animation_;
+  Ref<Texture2D> char_sprite_;
 
   int current_health;
 
@@ -42,6 +44,9 @@ public:
 
   Ref<SpriteFrames> getAnimation() const;
   void setAnimation(const Ref<SpriteFrames> anim);
+
+  Ref<Texture2D> getCharSprite() const;
+  void setCharSprite(const Ref<Texture2D> i_sprite);
 
   int getCurrentHealth() const;
   void setCurrentHealth(const int new_current);
