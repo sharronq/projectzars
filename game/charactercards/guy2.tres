@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharCard" load_steps=3 format=3 uid="uid://bw2dmdxq1xjmj"]
+
+[ext_resource type="Script" path="res://Scripts/character_card_resource.gd" id="1_bgskl"]
+[ext_resource type="Texture2D" uid="uid://c02fm48rc8opa" path="res://assets/icons/char2_ph.png" id="2_nrtmc"]
+
+[resource]
+script = ExtResource("1_bgskl")
+name = "Guy2"
+char_sprite = ExtResource("2_nrtmc")
