@@ -1,6 +1,6 @@
 extends PanelContainer
 
-@export var card: CharCard
+@export var card: CharData
 @export var party = false
 @onready var b = get_node('CharacterCollection')
 
@@ -11,11 +11,17 @@ var empty = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+
+
+func initial_connect(char_address : String):
 	if (!party or !empty):
+		card = load(char_address).duplicate()
 		$Icon.texture = card.char_sprite
 	connect("mouse_entered", select)
 	connect("mouse_exited", unselect)
 	$Selected.hide()
+
 
 func select():
 	$Selected.show()

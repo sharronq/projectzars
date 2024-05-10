@@ -22,10 +22,28 @@ func _ready():
 		slots.gui_input.connect(card_gui_input.bind(slots))
 		slots.selection.connect(show_info.bind(slots))
 		slots.deselection.connect(hide_info)
+	initial_connect()
 
+#Initize Card Slots with firebase file
+func initial_connect():
+	var prefix_address : String = "VBoxContainer/Inventory/"
+	var slot_number : int = 2
+	var char_address_dictionary : Dictionary = SaveLoadManager.get_fight_characters_address()
+	for char_address in char_address_dictionary:
+		var slot = get_node(prefix_address + "Slot" + str(slot_number))
+		slot_number += 1
+		slot.initial_connect(char_address_dictionary[char_address])
+ 
+	
 func show_info(slot: SlotClass):
 	if (slot.card):
-		$StatsPanel/Label.text = "Name: " + slot.card.name
+		var text = "Name: " + slot.card.name + '\n'
+		text += "HP: " + str(slot.card.health) + '\n'
+		text += "Attack: " + str(slot.card.attack) + '\n'
+		text += "Speed: " + str(slot.card.speed) + '\n'
+		
+		$StatsPanel/Label.text = text
+		
 		stats_panel.show()
 	
 func hide_info():
@@ -61,7 +79,6 @@ func card_gui_input(event: InputEvent, slot: SlotClass):
 					
 					#Update to firebase file
 					var spot : int = int(slots.name.substr(slots.name.length() - 1, 1))
-					print(slot.card.name)
 					#set_team_member(spot, slot.card.name)
 					break
 				elif (has_duplicate):
