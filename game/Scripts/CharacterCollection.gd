@@ -67,8 +67,11 @@ func _input(event):
 	if holding_char:
 		holding_char.global_position = get_global_mouse_position()
 
-func set_team():
-	SaveLoadManager
+func set_team_member(spot : int, char_name : String):
+	SaveLoadManager.set_user_fight_team(spot, char_name)
+
+func remove_team_member(spot : int):
+	SaveLoadManager.set_user_fight_team(spot, "")
 	#for card_slot in card_slots.get_children():
 		#card_slot.connect("gui_input", "slot_gui_input", [card_slot])
 #
