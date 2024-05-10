@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://assets/bgs/gallery.png" id="1_3b7ys"]
 [ext_resource type="Script" path="res://Scripts/CharacterCollection.gd" id="1_c6jgy"]
 [ext_resource type="Script" path="res://Scripts/Back.gd" id="3_vnb0o"]
-[ext_resource type="PackedScene" uid="uid://dp5qxqe5760ru" path="res://scenes/slot.tscn" id="4_ehif5"]
+[ext_resource type="PackedScene" path="res://scenes/slot.tscn" id="4_ehif5"]
 [ext_resource type="Script" path="res://Scripts/slot.gd" id="5_m1fc6"]
 [ext_resource type="Resource" uid="uid://qkx6tlf8ku4n" path="res://charactercards/guy1.tres" id="6_yem0m"]
 [ext_resource type="Resource" uid="uid://bw2dmdxq1xjmj" path="res://charactercards/guy2.tres" id="7_e2nci"]

@@ -236,6 +236,9 @@ func get_user_resolution() -> int :
 func get_user_background_db() -> int:
 	return game_save["Settings"]["Music"]["Volumn_db"]
 
+func get_fight_characters_address() -> Dictionary:
+	return fight_characters_address
+
 func increase_user_fight_level():
 	game_save["Fight"]["Level"] += 1
 
@@ -247,6 +250,13 @@ func set_user_resolution(new_resolution_value : int):
 
 func set_user_background_db(new_db : int):
 	game_save["Settings"]["Music"]["Volumn_db"] = new_db
+
+func set_user_fight_team(spot : int, char_name : String):
+	if(spot < 0 or spot >= 4):
+		print("The set_user_fight_team can only take range 0 - 3")
+		return
+	var char_order : String = "c" + str(spot)
+	game_save["Fight"]["Team"][char_order] = char_name
 #***************** Save actual game section ******************
 #Start a new game
 func save_game_save_internet(current_game_version : int):
