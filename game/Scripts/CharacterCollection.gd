@@ -38,6 +38,10 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 			slot.card = null
 			slot.empty = true
 			slot.refresh()
+			
+			#Remove from firebase file
+			var spot : int = int(slot.name.substr(slot.name.length() - 1, 1))
+			#remove_team_member(spot)
 
 func card_gui_input(event: InputEvent, slot: SlotClass):
 	if event is InputEventMouseButton:
@@ -54,6 +58,11 @@ func card_gui_input(event: InputEvent, slot: SlotClass):
 					slots.card = slot.card
 					slots.empty = false
 					slots.refresh()
+					
+					#Update to firebase file
+					var spot : int = int(slots.name.substr(slots.name.length() - 1, 1))
+					print(slot.card.name)
+					#set_team_member(spot, slot.card.name)
 					break
 				elif (has_duplicate):
 					print("This member already is in the party!")
