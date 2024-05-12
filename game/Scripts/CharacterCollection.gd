@@ -8,7 +8,7 @@ const SlotClass = preload("res://Scripts/slot.gd")
 var inventory = []
 var holding_char = null
 var has_duplicate = false
-
+var user_team : Array = ["", "", "", ""]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,21 +26,23 @@ func _ready():
  
 
 func initial_party():
+	user_team = SaveLoadManager.get_user_fight_team_in_array()
+	
 	var slot_number : int = 1
-	var team : Dictionary = SaveLoadManager.get_user_fight_team()
 	var char_address : Dictionary = SaveLoadManager.get_fight_characters_address()
-	for c in team:
+	for i in range(4):
 		#move to each slot
 		var prefix : String = "VBoxContainer/Party/"
-		var slot : String = "PartySlot" + str(slot_number)
-		slot_number += 1
+		var slot : String = "PartySlot" + str(i + 1)
+		
+		var char_name = user_team[i]
 		
 		#If current slot doesn't select a character, move to next slot
-		if(team[c] == ""):
+		if(char_name == ""):
 			continue
 		var node = get_node(prefix + slot)
 
-		node.initial_connect(char_address[team[c]])
+		node.initial_connect(char_address[char_name])
 
 func show_info(slot: SlotClass):
 	if (slot.card):
@@ -71,14 +73,14 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 func card_gui_input(event: InputEvent, slot: SlotClass):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			has_duplicate = false
 			print(slot.card.name)
-			for s in party_slots.get_children():
+			for s in user_team:
 				# Check for dupes
-				if (s.card == slot.card):
-					has_duplicate = true
+				if (s == slot.card.name):
+					print("This member already is in the party!")
+					return
 			for slots in party_slots.get_children():
-				if (!slots.card and !has_duplicate):
+				if (!slots.card):
 					#Add card to party
 					slots.card = slot.card
 					slots.empty = false
@@ -88,9 +90,7 @@ func card_gui_input(event: InputEvent, slot: SlotClass):
 					var spot : int = int(slots.name.substr(slots.name.length() - 1, 1))
 					set_team_member(spot, slot.card.name)
 					break
-				elif (has_duplicate):
-					print("This member already is in the party!")
-					break
+
 
 func card_selection(slot: SlotClass):
 	print("s")
@@ -102,9 +102,13 @@ func _input(event):
 
 func set_team_member(spot : int, char_name : String):
 	SaveLoadManager.set_user_fight_team(spot - 1, char_name)
+	user_team = SaveLoadManager.get_user_fight_team_in_array()
 
 func remove_team_member(spot : int):
 	SaveLoadManager.set_user_fight_team(spot - 1, "")
+	user_team = SaveLoadManager.get_user_fight_team_in_array()
+
+
 	#for card_slot in card_slots.get_children():
 		#card_slot.connect("gui_input", "slot_gui_input", [card_slot])
 #

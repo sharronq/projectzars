@@ -247,6 +247,20 @@ func get_user_background_db() -> int:
 func get_fight_characters_address() -> Dictionary:
 	return fight_characters_address
 
+func get_user_fight_team_in_array() -> Array:
+	var user_team = ["", "", "", ""]
+	var user_team_JSON = SaveLoadManager.get_user_fight_team()
+	for i in range(0, 4):
+		user_team[i] = user_team_JSON["c"+str(i)]
+	return user_team
+
+func get_fight_enemies_in_array(selecting_level : int) -> Array:
+	var enemy_team : Array = ["", "", "", ""]
+	var enemy_team_JSON = fight_enemies_in_each_level[str(selecting_level)]
+	for i in range(0, 4):
+		enemy_team[i] = enemy_team_JSON["c" + str(i)]
+	return enemy_team
+
 func increase_user_fight_level():
 	game_save["Fight"]["Level"] += 1
 
@@ -265,6 +279,7 @@ func set_user_fight_team(spot : int, char_name : String):
 		return
 	var char_order : String = "c" + str(spot)
 	game_save["Fight"]["Team"][char_order] = char_name
+	print(game_save["Fight"]["Team"])
 #***************** Save actual game section ******************
 #Start a new game
 func save_game_save_internet(current_game_version : int):
@@ -319,25 +334,27 @@ func resume_currentFight():
 
 
 func create_fight(zars : Array):
-	var level = selected_fight_level
+	var level : int = selected_fight_level
+	var zars_number : int = 0
 	#Load my team in a fight
-	var zars_number = 0
-	var team : Dictionary = get_user_fight_team()
+	var team : Array = get_user_fight_team_in_array()
 	print(team, "Here is the team")
-	for i in range (8):
-		var char_index : String = "c" + str(zars_number)
-		
-		zars_number += 1
-		if(zars_number == 4):
-			team = fight_enemies_in_each_level[str(level)]
-			print(team, "Here is the enemy")
-			zars_number = 0
+	
 
-		var char_name : String = team[char_index]
-		if(char_name == ""):
-			continue
-		var current_address : String = fight_characters_address[char_name]
-		zars[i] = load(current_address).duplicate()
+	while zars_number < 8:
+		for i in range(4):
+			var char_name : String = ""
+			if (team[i] != ""):
+				char_name = team[i]
+				var current_address : String = fight_characters_address[char_name]
+				zars[zars_number] = load(current_address).duplicate()
+
+			zars_number+=1
+		
+		team = get_fight_enemies_in_array(level)
+		print(team, "Here is the enemy")
+
+		
 		
 		
 		
