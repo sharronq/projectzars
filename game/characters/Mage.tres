@@ -1,0 +1,116 @@
+[gd_resource type="CharData" load_steps=17 format=3 uid="uid://dpd20e47rsv4w"]
+
+[ext_resource type="Texture2D" uid="uid://1wq1oxw4s6ea" path="res://assets/character_profile/Mage_Idle-1.png" id="1_v2uj4"]
+[ext_resource type="Texture2D" uid="uid://p8gjqe2dda2n" path="res://assets/sprite_sheets/Mage.png" id="2_h4do1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4voig"]
+atlas = ExtResource("2_h4do1")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b0m4"]
+atlas = ExtResource("2_h4do1")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g20qx"]
+atlas = ExtResource("2_h4do1")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fy0d"]
+atlas = ExtResource("2_h4do1")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e75ko"]
+atlas = ExtResource("2_h4do1")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2os2h"]
+atlas = ExtResource("2_h4do1")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbuph"]
+atlas = ExtResource("2_h4do1")
+region = Rect2(0, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11fat"]
+atlas = ExtResource("2_h4do1")
+region = Rect2(256, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nsam"]
+atlas = ExtResource("2_h4do1")
+region = Rect2(0, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mquph"]
+atlas = ExtResource("2_h4do1")
+region = Rect2(256, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv3e6"]
+atlas = ExtResource("2_h4do1")
+region = Rect2(0, 1280, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra78b"]
+atlas = ExtResource("2_h4do1")
+region = Rect2(256, 1280, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85khd"]
+atlas = ExtResource("2_h4do1")
+region = Rect2(0, 1536, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0v83y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4voig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3b0m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g20qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fy0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e75ko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2os2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbuph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11fat")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nsam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mquph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv3e6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra78b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85khd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[resource]
+name = "Mage"
+attack = 20
+health = 65
+speed = 65
+sprite_frames = SubResource("SpriteFrames_0v83y")
+char_sprite = ExtResource("1_v2uj4")

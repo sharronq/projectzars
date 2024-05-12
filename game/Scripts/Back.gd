@@ -7,5 +7,4 @@ func _ready():
 
 
 func button_pressed():
-	print("hi")
 	get_tree().change_scene_to_file("res://Scenes/GameHome.tscn")

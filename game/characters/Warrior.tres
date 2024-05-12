@@ -1,0 +1,109 @@
+[gd_resource type="CharData" load_steps=16 format=3 uid="uid://dbolucosahdn7"]
+
+[ext_resource type="Texture2D" uid="uid://bordlc16l3pmx" path="res://assets/character_profile/Warrior_Idle-1.png" id="1_i0r24"]
+[ext_resource type="Texture2D" uid="uid://dy3wwpff31r13" path="res://assets/sprite_sheets/Warrior.png" id="2_1ugb4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpe5l"]
+atlas = ExtResource("2_1ugb4")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ot42"]
+atlas = ExtResource("2_1ugb4")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q58mm"]
+atlas = ExtResource("2_1ugb4")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaet6"]
+atlas = ExtResource("2_1ugb4")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdsmh"]
+atlas = ExtResource("2_1ugb4")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyd5j"]
+atlas = ExtResource("2_1ugb4")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbrar"]
+atlas = ExtResource("2_1ugb4")
+region = Rect2(0, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20au3"]
+atlas = ExtResource("2_1ugb4")
+region = Rect2(256, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4163m"]
+atlas = ExtResource("2_1ugb4")
+region = Rect2(0, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bkvr"]
+atlas = ExtResource("2_1ugb4")
+region = Rect2(256, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv6ym"]
+atlas = ExtResource("2_1ugb4")
+region = Rect2(0, 1280, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xafme"]
+atlas = ExtResource("2_1ugb4")
+region = Rect2(256, 1280, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bn4l4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpe5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ot42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q58mm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaet6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdsmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyd5j")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbrar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20au3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4163m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bkvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv6ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xafme")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[resource]
+name = "Warrior"
+attack = 8
+health = 115
+speed = 100
+sprite_frames = SubResource("SpriteFrames_bn4l4")
+char_sprite = ExtResource("1_i0r24")

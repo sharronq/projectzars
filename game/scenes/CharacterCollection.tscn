@@ -1,13 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://55uimut1rpr3"]
+[gd_scene load_steps=16 format=3 uid="uid://55uimut1rpr3"]
 
 [ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://assets/bgs/gallery.png" id="1_3b7ys"]
 [ext_resource type="Script" path="res://Scripts/CharacterCollection.gd" id="1_c6jgy"]
 [ext_resource type="Script" path="res://Scripts/Back.gd" id="3_vnb0o"]
-[ext_resource type="PackedScene" path="res://scenes/slot.tscn" id="4_ehif5"]
+[ext_resource type="PackedScene" uid="uid://dp5qxqe5760ru" path="res://scenes/slot.tscn" id="4_ehif5"]
+[ext_resource type="CharData" uid="uid://dbolucosahdn7" path="res://characters/Warrior.tres" id="5_lqyq2"]
 [ext_resource type="Script" path="res://Scripts/slot.gd" id="5_m1fc6"]
-[ext_resource type="Resource" uid="uid://qkx6tlf8ku4n" path="res://charactercards/guy1.tres" id="6_yem0m"]
-[ext_resource type="Resource" uid="uid://bw2dmdxq1xjmj" path="res://charactercards/guy2.tres" id="7_e2nci"]
-[ext_resource type="Resource" uid="uid://bk4h06pjxmm22" path="res://charactercards/guy3.tres" id="7_edrhj"]
+[ext_resource type="CharData" uid="uid://d10mye0bexhhl" path="res://characters/Archer.tres" id="6_pk0gl"]
+[ext_resource type="CharData" uid="uid://dpd20e47rsv4w" path="res://characters/Mage.tres" id="7_gwlo5"]
+[ext_resource type="CharData" uid="uid://cv5dqgqwr0nfm" path="res://characters/Rogue.tres" id="8_phqjt"]
+[ext_resource type="CharData" uid="uid://dse78yt1xii1u" path="res://characters/Guardian.tres" id="9_ov4un"]
+[ext_resource type="CharData" uid="uid://vdshmlmllcd2" path="res://characters/Unknown.tres" id="10_x2i1t"]
+[ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="11_dr3mx"]
+[ext_resource type="FontFile" uid="uid://bq3x0g6opxv7u" path="res://assets/fonts/MorrisRomanAlternate-Black.ttf" id="12_jp8s3"]
+[ext_resource type="Texture2D" uid="uid://c00huap4tlawc" path="res://assets/buttons/button.png" id="12_vi6px"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2w4os"]
+texture = ExtResource("12_vi6px")
+modulate_color = Color(0.419608, 0.396078, 0.392157, 0.960784)
 
 [node name="CharacterCollection" type="Node2D"]
 script = ExtResource("1_c6jgy")
@@ -56,52 +66,40 @@ party = true
 layout_mode = 2
 columns = 5
 
-[node name="Slot2" parent="VBoxContainer/Inventory" instance=ExtResource("4_ehif5")]
+[node name="Warrior" parent="VBoxContainer/Inventory" instance=ExtResource("4_ehif5")]
 layout_mode = 2
 script = ExtResource("5_m1fc6")
-card = ExtResource("6_yem0m")
+card = ExtResource("5_lqyq2")
 party = false
 
-[node name="Slot3" parent="VBoxContainer/Inventory" instance=ExtResource("4_ehif5")]
+[node name="Archer" parent="VBoxContainer/Inventory" instance=ExtResource("4_ehif5")]
 layout_mode = 2
 script = ExtResource("5_m1fc6")
-card = ExtResource("7_e2nci")
+card = ExtResource("6_pk0gl")
 party = false
 
-[node name="Slot4" parent="VBoxContainer/Inventory" instance=ExtResource("4_ehif5")]
+[node name="Mage" parent="VBoxContainer/Inventory" instance=ExtResource("4_ehif5")]
 layout_mode = 2
 script = ExtResource("5_m1fc6")
-card = ExtResource("7_edrhj")
+card = ExtResource("7_gwlo5")
 party = false
 
-[node name="Slot5" parent="VBoxContainer/Inventory" instance=ExtResource("4_ehif5")]
+[node name="Rogue" parent="VBoxContainer/Inventory" instance=ExtResource("4_ehif5")]
 layout_mode = 2
 script = ExtResource("5_m1fc6")
-card = ExtResource("7_e2nci")
+card = ExtResource("8_phqjt")
 party = false
 
-[node name="Slot6" parent="VBoxContainer/Inventory" instance=ExtResource("4_ehif5")]
+[node name="Guardian" parent="VBoxContainer/Inventory" instance=ExtResource("4_ehif5")]
 layout_mode = 2
 script = ExtResource("5_m1fc6")
-card = ExtResource("7_e2nci")
+card = ExtResource("9_ov4un")
 party = false
 
-[node name="Slot7" parent="VBoxContainer/Inventory" instance=ExtResource("4_ehif5")]
+[node name="Unknown" parent="VBoxContainer/Inventory" instance=ExtResource("4_ehif5")]
 layout_mode = 2
 script = ExtResource("5_m1fc6")
-card = ExtResource("7_e2nci")
-party = false
-
-[node name="Slot8" parent="VBoxContainer/Inventory" instance=ExtResource("4_ehif5")]
-layout_mode = 2
-script = ExtResource("5_m1fc6")
-card = ExtResource("7_e2nci")
-party = false
-
-[node name="Slot9" parent="VBoxContainer/Inventory" instance=ExtResource("4_ehif5")]
-layout_mode = 2
-script = ExtResource("5_m1fc6")
-card = ExtResource("7_e2nci")
+card = ExtResource("10_x2i1t")
 party = false
 
 [node name="Button" type="Button" parent="."]
@@ -109,7 +107,10 @@ offset_left = 924.0
 offset_top = 55.0
 offset_right = 1097.0
 offset_bottom = 134.0
-text = "Back"
+theme_override_fonts/font = ExtResource("11_dr3mx")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_2w4os")
+text = "BACK"
 script = ExtResource("3_vnb0o")
 
 [node name="StatsPanel" type="Panel" parent="."]
@@ -122,6 +123,10 @@ offset_bottom = 601.0
 
 [node name="Label" type="Label" parent="StatsPanel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 64.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("12_jp8s3")
+theme_override_font_sizes/font_size = 30
 text = "Name: "

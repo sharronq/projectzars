@@ -1,0 +1,109 @@
+[gd_resource type="CharData" load_steps=16 format=3 uid="uid://cv5dqgqwr0nfm"]
+
+[ext_resource type="Texture2D" uid="uid://dnig6w0l811yo" path="res://assets/character_profile/Rogue_Idle-1.png" id="1_tuctu"]
+[ext_resource type="Texture2D" uid="uid://n6iw4dng4nv1" path="res://assets/sprite_sheets/Rogue.png" id="2_xl66m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hur0j"]
+atlas = ExtResource("2_xl66m")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wevol"]
+atlas = ExtResource("2_xl66m")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqlhy"]
+atlas = ExtResource("2_xl66m")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anjdf"]
+atlas = ExtResource("2_xl66m")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeb36"]
+atlas = ExtResource("2_xl66m")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdvn0"]
+atlas = ExtResource("2_xl66m")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfe8w"]
+atlas = ExtResource("2_xl66m")
+region = Rect2(0, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eypay"]
+atlas = ExtResource("2_xl66m")
+region = Rect2(256, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vg80r"]
+atlas = ExtResource("2_xl66m")
+region = Rect2(0, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiu88"]
+atlas = ExtResource("2_xl66m")
+region = Rect2(256, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rp0fi"]
+atlas = ExtResource("2_xl66m")
+region = Rect2(0, 1280, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw4m7"]
+atlas = ExtResource("2_xl66m")
+region = Rect2(256, 1280, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e4wu6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hur0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wevol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqlhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anjdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeb36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdvn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfe8w")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eypay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vg80r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiu88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rp0fi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw4m7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[resource]
+name = "Rogue"
+attack = 10
+health = 90
+speed = 150
+sprite_frames = SubResource("SpriteFrames_e4wu6")
+char_sprite = ExtResource("1_tuctu")

@@ -15,6 +15,7 @@ texture = ExtResource("1_2wp4i")
 
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 2
+expand_mode = 1
 
 [node name="Selected" type="TextureRect" parent="."]
 layout_mode = 2

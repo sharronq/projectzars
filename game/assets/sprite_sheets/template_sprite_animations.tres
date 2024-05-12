@@ -1,0 +1,149 @@
+[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://crvl6yn1cbdoi"]
+
+[ext_resource type="Texture2D" uid="uid://c8hbmv3x3jx8x" path="res://assets/sprite_sheets/Archer.png" id="1_okvt4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noul4"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kj5q"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2x8c"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nlrb"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncpdr"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgj0o"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuf6e"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lle6i"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smtag"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5u7x"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hrj4"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(512, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nex7h"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(768, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjpiu"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(0, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u2ot"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(256, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqyex"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(512, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvnd0"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(768, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhd3j"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(0, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feopy"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(256, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg7gx"]
+atlas = ExtResource("1_okvt4")
+region = Rect2(512, 1024, 256, 256)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noul4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kj5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2x8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nlrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncpdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgj0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuf6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lle6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smtag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5u7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hrj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nex7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjpiu")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u2ot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqyex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvnd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhd3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feopy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg7gx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]

@@ -11,7 +11,12 @@ var empty = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	if (!party or !empty):
+		$Icon.texture = card.char_sprite
+	connect("mouse_entered", select)
+	connect("mouse_exited", unselect)
+	$Selected.hide()
+	
 
 
 func initial_connect(char_address : String):
