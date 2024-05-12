@@ -13,7 +13,15 @@ var delete_files = [
 	]
 
 var fight_characters_address : Dictionary = {
-	"archer" = "res://characters/archer_blue.tres",
+	"Archer" = "res://characters/Archer.tres",
+	"Guardian" = "res://characters/Guardian.tres",
+	"Mage" = "res://characters/Mage.tres",
+	"Rogue" = "res://characters/Rogue.tres",
+	"Unknown" = "res://characters/Unknown.tres",
+	"Warrior" = "res://characters/Warrior.tres",
+	
+	
+	"archer_blue" = "res://characters/archer_blue.tres",
 	"pawn_blue" = "res://characters/pawn_blue.tres",
 	"pawn_red" = "res://characters/pawn_red.tres",
 	"torch_red" = "res://characters/torch_red.tres",
@@ -23,19 +31,19 @@ var fight_characters_address : Dictionary = {
 
 var fight_enemies_in_each_level : Dictionary = {
 	"0" : {
-		"c0" : "archer",
-		"c1" : "archer",
+		"c0" : "archer_blue",
+		"c1" : "archer_blue",
 		"c2" : "",
 		"c3" : ""
 	},
 	"1" : {
-		"c0" : "archer",
-		"c1" : "archer",
+		"c0" : "archer_blue",
+		"c1" : "archer_blue",
 		"c2" : "pawn_blue",
 		"c3" : ""
 	},
 	"2" : {
-		"c0" : "archer",
+		"c0" : "archer_blue",
 		"c1" : "pawn_blue",
 		"c2" : "pawn_blue",
 		"c3" : ""
@@ -155,12 +163,12 @@ func create_new_game_save():
 
 func create_characters_file() -> Dictionary:
 	var char_file : Dictionary = {
-		"archer" = "unlock",
-		"pawn_blue" = "unlock",
-		"pawn_red" = "lock",
-		"torch_red" = "lock",
-		"warrior_blue" = "unlock",
-		"warrior_yellow" = "unlock"
+		"Archer" = "unlock",
+		"Guardian" = "unlock",
+		"Mage" = "lock",
+		"Rogue" = "lock",
+		"Unknown" = "unlock",
+		"Warrior" = "unlock"
 	}
 	return char_file
 
@@ -185,10 +193,10 @@ func create_fight_initials() -> Dictionary:
 
 func create_initial_fight_team() -> Dictionary:
 	var fight_team_file : Dictionary = {
-		"c0" = "warrior_yellow",
-		"c1" = "warrior_blue",
-		"c2" = "pawn_blue",
-		"c3" = "archer"
+		"c0" = "",
+		"c1" = "",
+		"c2" = "",
+		"c3" = ""
 	}
 	return fight_team_file
 
@@ -315,18 +323,23 @@ func create_fight(zars : Array):
 	#Load my team in a fight
 	var zars_number = 0
 	var team : Dictionary = get_user_fight_team()
+	print(team, "Here is the team")
 	for i in range (8):
 		var char_index : String = "c" + str(zars_number)
+		
+		zars_number += 1
+		if(zars_number == 4):
+			team = fight_enemies_in_each_level[str(level)]
+			print(team, "Here is the enemy")
+			zars_number = 0
+
 		var char_name : String = team[char_index]
 		if(char_name == ""):
 			continue
 		var current_address : String = fight_characters_address[char_name]
 		zars[i] = load(current_address).duplicate()
 		
-		zars_number += 1
-		if(zars_number == 4):
-			team = fight_enemies_in_each_level[str(level)]
-			zars_number = 0
+		
 		
 
 #***************** Delete actual game section ******************
@@ -439,5 +452,3 @@ func deleteAccount():
 		Firebase.Auth.delete_user_account()
 		print("I am deleted")
 		delete_account_successful.emit()
-
-

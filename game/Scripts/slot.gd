@@ -18,11 +18,10 @@ func _ready():
 	$Selected.hide()
 	
 
-
+#! Connection function for Party Slot only !
 func initial_connect(char_address : String):
-	if (!party or !empty):
-		card = load(char_address).duplicate()
-		$Icon.texture = card.char_sprite
+	card = load(char_address).duplicate()
+	$Icon.texture = card.char_sprite
 	connect("mouse_entered", select)
 	connect("mouse_exited", unselect)
 	$Selected.hide()

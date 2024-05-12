@@ -22,19 +22,26 @@ func _ready():
 		slots.gui_input.connect(card_gui_input.bind(slots))
 		slots.selection.connect(show_info.bind(slots))
 		slots.deselection.connect(hide_info)
-	initial_connect()
-
-#Initize Card Slots with firebase file
-func initial_connect():
-	var prefix_address : String = "VBoxContainer/Inventory/"
-	var slot_number : int = 2
-	var char_address_dictionary : Dictionary = SaveLoadManager.get_fight_characters_address()
-	for char_address in char_address_dictionary:
-		var slot = get_node(prefix_address + "Slot" + str(slot_number))
-		slot_number += 1
-		slot.initial_connect(char_address_dictionary[char_address])
+	initial_party()
  
-	
+
+func initial_party():
+	var slot_number : int = 1
+	var team : Dictionary = SaveLoadManager.get_user_fight_team()
+	var char_address : Dictionary = SaveLoadManager.get_fight_characters_address()
+	for c in team:
+		#move to each slot
+		var prefix : String = "VBoxContainer/Party/"
+		var slot : String = "PartySlot" + str(slot_number)
+		slot_number += 1
+		
+		#If current slot doesn't select a character, move to next slot
+		if(team[c] == ""):
+			continue
+		var node = get_node(prefix + slot)
+
+		node.initial_connect(char_address[team[c]])
+
 func show_info(slot: SlotClass):
 	if (slot.card):
 		var text = "Name: " + slot.card.name + '\n'
@@ -59,7 +66,7 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 			
 			#Remove from firebase file
 			var spot : int = int(slot.name.substr(slot.name.length() - 1, 1))
-			#remove_team_member(spot)
+			remove_team_member(spot)
 
 func card_gui_input(event: InputEvent, slot: SlotClass):
 	if event is InputEventMouseButton:
@@ -79,7 +86,7 @@ func card_gui_input(event: InputEvent, slot: SlotClass):
 					
 					#Update to firebase file
 					var spot : int = int(slots.name.substr(slots.name.length() - 1, 1))
-					#set_team_member(spot, slot.card.name)
+					set_team_member(spot, slot.card.name)
 					break
 				elif (has_duplicate):
 					print("This member already is in the party!")
@@ -94,10 +101,10 @@ func _input(event):
 		holding_char.global_position = get_global_mouse_position()
 
 func set_team_member(spot : int, char_name : String):
-	SaveLoadManager.set_user_fight_team(spot, char_name)
+	SaveLoadManager.set_user_fight_team(spot - 1, char_name)
 
 func remove_team_member(spot : int):
-	SaveLoadManager.set_user_fight_team(spot, "")
+	SaveLoadManager.set_user_fight_team(spot - 1, "")
 	#for card_slot in card_slots.get_children():
 		#card_slot.connect("gui_input", "slot_gui_input", [card_slot])
 #
