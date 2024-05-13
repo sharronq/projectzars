@@ -35,7 +35,8 @@ func playHurt(damage:int):
 	temp.set("theme_override_colors/font_color", Color.DARK_RED)
 	add_child(temp)
 	var tween = get_tree().create_tween()
-	tween.tween_property($HPBar, "value", data.getCurrentHealth() * 100 / float(data.getHealth()), 0.5)
+	if data:
+		tween.tween_property($HPBar, "value", data.getCurrentHealth() * 100 / float(data.getHealth()), 0.5)
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property(temp, "position", Vector2(48, 24), 0.5)
 	await tween2.finished
