@@ -240,7 +240,8 @@ offset_top = 181.0
 offset_right = 911.0
 offset_bottom = 268.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("4_j15dw")
+theme_override_font_sizes/font_size = 40
 text = "You sure want to 
 continue (modify) this game slot?"
 horizontal_alignment = 1

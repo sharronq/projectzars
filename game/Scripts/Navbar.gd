@@ -9,7 +9,7 @@ func _ready():
 	var scene_dict = {"Home": "Gamehome",
 				"View characters": "CharacterCollection",
 				"Battle": "BattleSelect",
-				"Settings": "Settings"}
+				"Settings": "Canvas"}
 	for i in children.slice(0, 4):
 		if scene_dict[i.text] == current_scene:
 			i.disabled = true

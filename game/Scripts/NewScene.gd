@@ -6,6 +6,8 @@ var game_version : int
 var load_save : String
 #index file
 var user_file : Dictionary
+#save slot user chooses
+var save_slot = "1"
 
 @onready var saveload_label = $saveload_label
 
@@ -45,36 +47,38 @@ func initialize_button():
 func get_scene_name():
 	return get_tree().get_current_scene().name
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
-
 # Called when load button is pressed, transitions to new scene
 func _on_load_1_pressed():
 	#get_tree().change_scene_to_file("res://scenes/GameHome.tscn")
 	#return
 	load_save = "Load"
+	$Pop_up/Announcement.text = "Load Save Slot " + save_slot + "? 
+	* Any unsaved progress will be lost!"
 	$Pop_up.show()
 	$Pop_up/Yes.grab_focus()
 
 func _on_save_pressed():
 	load_save = "Save"
+	$Pop_up/Announcement.text = "Save to Save Slot " + save_slot + "? 
+	* Cannot be undone!"
 	$Pop_up.show()
 	$Pop_up/Yes.grab_focus()
-
+ 
 func _on_delete_pressed():
 	load_save = "Delete"
 	$Pop_up.show()
 	$Pop_up/No.grab_focus()
 
 func _on_slot_1_pressed():
+	save_slot = "1"
 	$Load.grab_focus()
 
 func _on_slot_2_pressed():
+	save_slot = "2"
 	$Load.grab_focus()
 
 func _on_slot_3_pressed():
+	save_slot = "3"
 	$Load.grab_focus()
 
 

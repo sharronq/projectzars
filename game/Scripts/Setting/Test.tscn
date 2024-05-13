@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://roiyvwuuynbb"]
+[gd_scene load_steps=9 format=3 uid="uid://roiyvwuuynbb"]
 
 [ext_resource type="Script" path="res://Scripts/Setting/Test.gd" id="1_7ehgs"]
 [ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://assets/bgs/gallery.png" id="2_ylpmq"]
+[ext_resource type="FontFile" uid="uid://bq3x0g6opxv7u" path="res://assets/fonts/MorrisRomanAlternate-Black.ttf" id="3_jvylr"]
+[ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="4_0lrvf"]
+[ext_resource type="PackedScene" uid="uid://c70rk3scy5vvq" path="res://scenes/NavBar.tscn" id="5_217eh"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4smr5"]
 
@@ -38,10 +41,18 @@ offset_top = 50.0
 offset_right = 67.5
 offset_bottom = 105.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 40
-text = "Setting"
+theme_override_fonts/font = ExtResource("3_jvylr")
+theme_override_font_sizes/font_size = 50
+text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="NavBar" parent="frame" instance=ExtResource("5_217eh")]
+layout_mode = 1
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="frame"]
 custom_minimum_size = Vector2(60, 60)
@@ -56,28 +67,36 @@ offset_bottom = 222.842
 
 [node name="HBoxContainer" type="HBoxContainer" parent="frame/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.86
 
 [node name="Screen_button" type="Button" parent="frame/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Account_button")
 focus_neighbor_right = NodePath("../Music_button")
 focus_neighbor_bottom = NodePath("../../Settings_container/Screen_setting/Resolution_Option")
+theme_override_fonts/font = ExtResource("4_0lrvf")
 theme_override_font_sizes/font_size = 40
 text = "Screen"
 
 [node name="Music_button" type="Button" parent="frame/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Screen_button")
 focus_neighbor_right = NodePath("../Account_button")
 focus_neighbor_bottom = NodePath("../../Settings_container/Music_container/Background_Slider/CheckBox")
+theme_override_fonts/font = ExtResource("4_0lrvf")
 theme_override_font_sizes/font_size = 40
 text = "Music"
 
 [node name="Account_button" type="Button" parent="frame/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Music_button")
 focus_neighbor_right = NodePath("../Screen_button")
 focus_neighbor_bottom = NodePath("../../Settings_container/Account_ontainer/Username")
+theme_override_fonts/font = ExtResource("4_0lrvf")
 theme_override_font_sizes/font_size = 40
 text = "Account"
 
@@ -90,13 +109,15 @@ columns = 2
 
 [node name="Label" type="Label" parent="frame/VBoxContainer/Settings_container/Screen_setting"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Resolution Options"
+theme_override_fonts/font = ExtResource("4_0lrvf")
+theme_override_font_sizes/font_size = 40
+text = "Screen size"
 
 [node name="Resolution_Option" type="OptionButton" parent="frame/VBoxContainer/Settings_container/Screen_setting"]
 layout_mode = 2
 size_flags_horizontal = 10
 focus_neighbor_top = NodePath("../../../HBoxContainer/Screen_button")
+theme_override_fonts/font = ExtResource("4_0lrvf")
 theme_override_font_sizes/font_size = 40
 item_count = 5
 selected = 0
@@ -232,6 +253,7 @@ theme_override_font_sizes/font_size = 30
 text = "Back"
 
 [node name="Back" type="Button" parent="frame"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
