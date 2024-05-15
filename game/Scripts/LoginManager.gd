@@ -63,6 +63,7 @@ func on_login_succeeded(auth):
 	await get_tree().create_timer(1).timeout
 	SceneSwitcher.notify("Login", "LoadSave")
 	get_tree().change_scene_to_file("res://scenes/LoadSave.tscn")
+	#get_tree().change_scene_to_file("res://scenes/navbar_2.tscn")
 
 #Sign up success
 #1) Prompt the user a message

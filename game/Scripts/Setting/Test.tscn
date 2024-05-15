@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/Setting/Test.gd" id="1_7ehgs"]
 [ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://assets/bgs/gallery.png" id="2_ylpmq"]
 [ext_resource type="FontFile" uid="uid://bq3x0g6opxv7u" path="res://assets/fonts/MorrisRomanAlternate-Black.ttf" id="3_jvylr"]
+[ext_resource type="PackedScene" uid="uid://8miwbx0yvql6" path="res://scenes/NavBar.tscn" id="3_y030d"]
 [ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="4_0lrvf"]
-[ext_resource type="PackedScene" uid="uid://c70rk3scy5vvq" path="res://scenes/NavBar.tscn" id="5_217eh"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4smr5"]
 
@@ -31,6 +31,9 @@ offset_bottom = 647.0
 texture = ExtResource("2_ylpmq")
 expand_mode = 1
 
+[node name="Navbar" parent="frame" instance=ExtResource("3_y030d")]
+layout_mode = 1
+
 [node name="Label" type="Label" parent="frame"]
 layout_mode = 1
 anchors_preset = 5
@@ -46,13 +49,6 @@ theme_override_font_sizes/font_size = 50
 text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="NavBar" parent="frame" instance=ExtResource("5_217eh")]
-layout_mode = 1
-offset_left = -1.0
-offset_top = 1.0
-offset_right = -1.0
-offset_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="frame"]
 custom_minimum_size = Vector2(60, 60)

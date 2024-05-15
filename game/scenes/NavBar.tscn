@@ -1,20 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://c70rk3scy5vvq"]
+[gd_scene load_steps=7 format=3 uid="uid://8miwbx0yvql6"]
 
-[ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="1_crplm"]
-[ext_resource type="Script" path="res://Scripts/NavBar.gd" id="1_l4mum"]
-[ext_resource type="StyleBox" uid="uid://b23on3vnskn3s" path="res://resources/navbar_disabled.tres" id="2_a427j"]
-[ext_resource type="StyleBox" uid="uid://7pyavrmageb5" path="res://resources/navbar_enabled.tres" id="2_wd30j"]
-[ext_resource type="StyleBox" uid="uid://dix82pa27dcyp" path="res://resources/navbar_hover.tres" id="3_m7js8"]
-[ext_resource type="StyleBox" uid="uid://c4emslis10mjk" path="res://resources/save_button.tres" id="6_7gac8"]
+[ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="1_cxiyf"]
+[ext_resource type="Script" path="res://Scripts/navbar_2.gd" id="1_kw516"]
+[ext_resource type="StyleBox" uid="uid://7pyavrmageb5" path="res://resources/navbar_enabled.tres" id="2_cmtho"]
+[ext_resource type="StyleBox" uid="uid://dix82pa27dcyp" path="res://resources/navbar_hover.tres" id="3_hobsm"]
+[ext_resource type="StyleBox" uid="uid://b23on3vnskn3s" path="res://resources/navbar_disabled.tres" id="4_st1s4"]
+[ext_resource type="StyleBox" uid="uid://c4emslis10mjk" path="res://resources/save_button.tres" id="5_3crjl"]
 
-[node name="NavBar" type="Control"]
+[node name="Navbar" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_l4mum")
+script = ExtResource("1_kw516")
 
 [node name="Home" type="Button" parent="."]
 layout_mode = 0
@@ -23,12 +23,12 @@ offset_top = 560.0
 offset_right = 353.0
 offset_bottom = 631.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_crplm")
+theme_override_fonts/font = ExtResource("1_cxiyf")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("2_wd30j")
-theme_override_styles/hover = ExtResource("3_m7js8")
-theme_override_styles/pressed = ExtResource("2_wd30j")
-theme_override_styles/disabled = ExtResource("2_a427j")
+theme_override_styles/normal = ExtResource("2_cmtho")
+theme_override_styles/hover = ExtResource("3_hobsm")
+theme_override_styles/pressed = ExtResource("2_cmtho")
+theme_override_styles/disabled = ExtResource("4_st1s4")
 text = "Home"
 
 [node name="View characters" type="Button" parent="."]
@@ -38,11 +38,11 @@ offset_top = 560.0
 offset_right = 612.0
 offset_bottom = 631.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_crplm")
+theme_override_fonts/font = ExtResource("1_cxiyf")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("2_wd30j")
-theme_override_styles/hover = ExtResource("3_m7js8")
-theme_override_styles/disabled = ExtResource("2_a427j")
+theme_override_styles/normal = ExtResource("2_cmtho")
+theme_override_styles/hover = ExtResource("3_hobsm")
+theme_override_styles/disabled = ExtResource("4_st1s4")
 text = "View characters"
 
 [node name="Battle" type="Button" parent="."]
@@ -52,11 +52,11 @@ offset_top = 560.0
 offset_right = 869.0
 offset_bottom = 631.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_crplm")
+theme_override_fonts/font = ExtResource("1_cxiyf")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("2_wd30j")
-theme_override_styles/hover = ExtResource("3_m7js8")
-theme_override_styles/disabled = ExtResource("2_a427j")
+theme_override_styles/normal = ExtResource("2_cmtho")
+theme_override_styles/hover = ExtResource("3_hobsm")
+theme_override_styles/disabled = ExtResource("4_st1s4")
 text = "Battle"
 
 [node name="Settings" type="Button" parent="."]
@@ -66,11 +66,11 @@ offset_top = 560.0
 offset_right = 1131.0
 offset_bottom = 631.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_crplm")
+theme_override_fonts/font = ExtResource("1_cxiyf")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("2_wd30j")
-theme_override_styles/hover = ExtResource("3_m7js8")
-theme_override_styles/disabled = ExtResource("2_a427j")
+theme_override_styles/normal = ExtResource("2_cmtho")
+theme_override_styles/hover = ExtResource("3_hobsm")
+theme_override_styles/disabled = ExtResource("4_st1s4")
 text = "Settings"
 
 [node name="Go_to_saved_game_button" type="Button" parent="."]
@@ -80,7 +80,7 @@ offset_top = 60.0
 offset_right = 1091.0
 offset_bottom = 116.0
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("6_7gac8")
+theme_override_styles/normal = ExtResource("5_3crjl")
 
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="View characters" to="." method="_on_view_characters_pressed"]

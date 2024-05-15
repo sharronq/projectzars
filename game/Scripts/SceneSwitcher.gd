@@ -5,6 +5,9 @@ signal scene_changed(new_scene : String)
 var caller : String = ""
 var callee : String = ""
 
+#Only to record what nav bar goes to, in order to disable the correct node
+var nav_bar_target_patch = "Home" 
+
 var addresses : Dictionary = {
 	"Login" : "res://scenes/Login.tscn",
 	"LoadSave" : "res://scenes/LoadSave.tscn",

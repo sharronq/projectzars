@@ -91,7 +91,8 @@ func _on_slot_3_pressed():
 func load_successed():
 	SceneSwitcher.notify("Save", "Home")
 	Settings.load_user_data()
-	var path = scene_dict[get_scene_name()]
+	$Pop_up.hide()
+	var path = "res://scenes/GameHome.tscn"
 	get_tree().change_scene_to_file(path)
 
 func save_successed():

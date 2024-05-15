@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://4wi8ncrop70p"]
 
 [ext_resource type="Texture2D" uid="uid://lsef8kn6pfi4" path="res://assets/bgs/gallery.png" id="1_ctdrn"]
-[ext_resource type="PackedScene" uid="uid://c70rk3scy5vvq" path="res://scenes/NavBar.tscn" id="2_mt12o"]
+[ext_resource type="PackedScene" uid="uid://8miwbx0yvql6" path="res://scenes/NavBar.tscn" id="2_ntg6w"]
 [ext_resource type="FontFile" uid="uid://dpghealcypu5y" path="res://assets/fonts/CaslonAntique.ttf" id="3_fhh4f"]
 [ext_resource type="Theme" uid="uid://df0hnq8k7t4jd" path="res://resources/defaulttext.tres" id="4_0puqj"]
 [ext_resource type="Script" path="res://Scripts/start_pve.gd" id="5_2810r"]
@@ -13,9 +13,7 @@ position = Vector2(576, 324)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_ctdrn")
 
-[node name="NavBar" parent="." instance=ExtResource("2_mt12o")]
-offset_top = 3.05176e-05
-offset_bottom = 3.05176e-05
+[node name="Navbar" parent="." instance=ExtResource("2_ntg6w")]
 
 [node name="PvE" type="Label" parent="."]
 offset_left = 136.0
